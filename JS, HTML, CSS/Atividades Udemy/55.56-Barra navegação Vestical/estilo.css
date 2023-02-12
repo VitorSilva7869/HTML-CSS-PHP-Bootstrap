@@ -1,0 +1,37 @@
+ul{
+    /*border: 1px solid red;*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*li{
+    padding: 10px 20px;
+    background: url(imagens/seta.png) no-repeat left center;
+}*/
+
+ul a{
+    width: 200px;
+    height: 40px;/* Altura Width*/
+    display: block; /* Altera para Bloco o Link*/
+    text-decoration: none; /* Tira o Sublinhiado*/
+    text-indent: 40px; /* Identa o texto trazendo para esquerda*/
+    line-height: 40px; /* Ajusta o Text-line Almentando sua espesura*/
+    background: #f7b600 url(imagens/menu.png) no-repeat; /* no-repeat não deixa a imagem se repetir.   Caso a imagem não carregue o # vai servir de Plano B*/
+}
+
+a:hover {
+    background-position: right bottom;
+    /*background-color: #f99200; /* Caso a imagem não carregue esse Background serve de plano B*/
+    color: white;
+
+}
+
+/* Criando marcação na Pagina*/
+#home #selecionado .home a,
+#sobre #selecionado .sobre a{
+    background-position: right bottom;
+    /*background-color: #f99200; /* Caso a imagem não carregue esse Background serve de plano B*/
+    color: white;
+
+}
