@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Formularios</title>
+</head>
+<body>
+    <h2>Estilisando Formularios</h2>
+    <form action="">
+        <fieldset> <!-- Fieldset Agrupa dados semenhantes -->
+            <legend>Detalhes de contatos</legend>
+
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome">
+            </div>
+
+            <div>
+                <label for="email">Email: </label>
+                <input type="text" name="email" id="email">
+            </div>
+
+            <div>
+                <label for="url">Url: </label>
+                <input type="text" name="url" id="url">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Comentarios</legend>
+            <div>
+                <label for="mensagens">Mensagens</label>
+                <textarea name="mensagens" id="mensagens" cols="30" rows="10"></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Lembrar d mim</legend>
+            <div>
+                <label for="sim">
+                    <input type="radio" name="lembrar" id="sim"> sim
+                </label>
+            </div>
+
+            
+            <div>
+                <label for="nao">
+                    <input type="radio" name="lembrar" id="nao"> Não
+                </label>
+            </div>
+        </fieldset>
+    </form>
+
+</body>
+</html>

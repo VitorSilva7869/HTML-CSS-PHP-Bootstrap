@@ -1,0 +1,28 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+fieldset{
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+}
+
+legend{
+    font-weight: bold;
+}
+
+label{
+    display: block; /* Transformou em blocos */
+    cursor: pointer; /* O cursor do mause fica uma mãozinha */
+}
+
+input[type="text"]{
+    width: 20em;
+}
+
+textarea{
+    width: 20em;
+    height: 10em;
+}

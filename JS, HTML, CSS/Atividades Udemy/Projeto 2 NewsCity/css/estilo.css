@@ -1,0 +1,258 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background: white url(../imagens/fundo.png) repeat-x top left;
+}
+
+/* --------------Conteiner principal-----------------*/
+
+#conteiner{
+    width: 720px;
+    margin: 0 auto;
+}
+
+/* Imagens Logo TOP*/
+
+#top{
+    height: 150px;
+    padding-top: 20px;
+    background: url(../imagens/detalhe-topo.png) no-repeat right top;
+}
+
+.logo{ /* Botamos a logo em um H1 por questão de acessibilidade para o programa ler a logo*/ 
+    width: 230px;
+    height: 80px;
+    background: url(../imagens/logo.png) no-repeat left;
+    text-indent: -3000px; /* Identa o texto para posição de preferencia*/
+}
+
+/* ---------------Barra nevegação Top---------------*/
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#top ul{
+    margin-top: 30px;
+    background: #b10333;
+    float: left;
+}
+
+#top ul li{
+    float: left;
+}
+
+#top ul a{
+    font-size: 0.9em;
+    display: block;
+    padding: 0.5em 1.5em;
+    line-height: 2.1em;
+    text-decoration: none;
+    color: white;
+    background: url(..//imagens/divisor.png) no-repeat left center;
+
+}
+
+#top ul .primeiro a{
+    background: none;
+}
+
+#top ul a:hover{
+    color: #69001d;
+}
+
+body.home #top #home,
+body.noticias #top #noticias,
+body.estadual #top #estadual,
+body.brasil #top #brasil,
+body.internacional #top #internacional,
+body.saude #top #saude,
+body.foto #top #foto{
+    color: white;
+    background: #de003e;
+    cursor: text;
+}
+
+/*------------------------Conteudo Principal 1--------------*/
+#conteudo{ /* Conteiner */
+    margin-top: 60px;
+    background: #f5f5f5;
+    
+}
+
+#primeira-coluna #conteudo1{
+    width: 255px ;
+    float: left; 
+    margin: 0 0 20px 200px;
+}
+
+#conteudo2{
+    width: 255px;
+    float: left;
+    margin: 0 0 20px 10px;
+}
+
+#navegacao{
+    width: 180px;
+    float: left;
+    margin: 0 0 20px -720px;
+}
+
+/* ______________Caixas____________*/
+
+.caixa{
+    background: #f3f3f3 url(..//imagens/fundo-caixa.png) ;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.caixa h2{
+    font-size: 1.1em;
+    background: #294c71;
+    color: white;
+    padding: 5px;
+}
+
+.caixa-conteudo{
+    padding: 5px;
+    background: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Navegação caixa */
+#navegacao .caixa-conteudo a{
+    display: flex;
+    padding: 8px;
+    text-decoration: none;
+    color: #294c71;
+
+}
+
+#navegacao .caixa-conteudo a:hover{
+    color: black;
+    background: url(../imagens/marcador.png) no-repeat left center;
+    padding-left: 25px;
+}
+
+.caixa-conteudo label{
+    font-size: 1.3em;
+    color: #294c71;
+    cursor: pointer;
+}
+
+.caixa-conteudo input{
+    width: 90%;
+    padding: 4px;
+
+}
+
+.botao{
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.submit {
+    background: #de003e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.submit:hover{
+    background: #69001d ;
+}
+
+/* Conteudo Caixas */
+
+.caixa-conteudo h3{
+    width: 80%;
+    padding: 6px;
+    font-size: 0.9em;
+    background: #de003e;
+    color: white;
+}
+
+img.imagem-principal{ /*¨¨¨¨¨¨¨¨¨¨¨¨¨¨*/
+    width: 100%;
+    padding-top: 10px;
+}
+
+.caixa-conteudo p{
+    font-size: 0.8em;
+}
+
+/* Caixa Noticias */
+
+.lista-noticia li{
+    padding: 2px;
+    border-bottom: 1px solid #ccc;
+    height: 65px;
+
+}
+
+.lista-noticia li a img{
+    float: left;
+    margin: 5px;
+}
+
+.lista-noticia li a{
+    text-decoration: none;
+}
+
+.lista-noticia li a h4{
+    text-decoration: none;
+    font-size: 1em;
+    padding: 0;
+    color: #de003e;
+}
+
+.lista-noticia li a p{
+    text-decoration: none;
+    font-size: 0.7em;    
+}
+
+.lista-noticia li:hover{
+    background: #ccc;
+}
+
+/*-------------------Rodape-------------------------*/
+#container-rodape{
+    background: #294c71;
+    clear: both;
+    padding: 20px;
+}
+
+#rodape{
+    width: 750px;
+    margin: 0 auto;
+    color: white;
+}
+
+
+
+
+/*===================== Brasil pagina =============*/
+#brasil-coluna #conteudo1{
+    width: 500px ;
+    margin: 0 0 20px 220px;
+    float: left;
+}
+
+
+
+/* ===================== Foto pagina ===============*/
+
+#foto-coluna #conteudo1{
+    width: 720px ;
+    margin: 0 0 20px;
+    background: #b10333;
+}
+
