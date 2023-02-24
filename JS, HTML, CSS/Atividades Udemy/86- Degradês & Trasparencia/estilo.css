@@ -1,0 +1,12 @@
+#caixa{
+    width: 300px;
+    height: 300px;
+    /*background: green url(03-Xiaomi-Mi-11-Ultra-640x392-2.jpg);*/
+    background: linear-gradient(to left green, yellow); /* Cria um degradê. To left, fala a pocição. */
+    background: linear-gradient(93deg green, yellow); /* Deg Cria um degrader aleatorio*/
+    background: radial-gradient(green, red); /* Cria um degrade circular*/
+}
+
+#caixa h1{
+    background: rgba(255, 255, 255, 0.8); /* O "0.8" cria uma opacidade deixando transparente*/
+}

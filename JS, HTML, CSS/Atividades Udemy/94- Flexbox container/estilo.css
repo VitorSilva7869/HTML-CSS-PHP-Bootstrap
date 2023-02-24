@@ -1,0 +1,38 @@
+#conteudo{
+    background: #dcdcdc;
+    height: 400px;
+    display: flex; /* Deixa os item na vestical do lado do outro*/
+
+    /* ______________________row|row-reverse|column|column-reverse______________________ */
+
+    flex-direction: row-reverse; /* Organiza vesticalmente aocontrario*/
+    flex-direction: column; /* Deixa os itens em colunas */
+    flex-direction: column-reverse; /*Deixa os itens em colunas aocontrarias*/
+    
+    /* ______________________nowrap|wrap|wrap-reverse______________________ */
+
+    flex-wrap: nowrap; /* Não vai existir uma quebra dos itens, eles vao se apertar */
+    flex-wrap: wrap; /* Quebra os itens ajustando */
+    flex-wrap: wrap-reverse ; /* Quebra os itens ajustando, deixando aocontrario*/
+
+    /* ______________________flex-start|flex-end|center|space-between|space-around______________________*/
+
+    justify-content: flex-start; /* O padrão colado a esquerda*/
+    justify-content: flex-end; /* Fica alinhado colado a direita*/
+    justify-content: center; /* Centraliza os itens */
+    justify-content: space-around; /* Distribui os itens criando espaçamento */
+
+    /* ______________________stretch|center|flex-start|flex-end|baseline______________________ */
+
+    align-items: stretch; /* Padrão deixa esticado */
+    align-items: center; /* Os itens centraliza e não deixa mais esticado*/
+    align-items: flex-start; /* O itens Fica colado no top */
+    align-items: flex-end; /* Os itens fica colado no Botom parte de baixo*/
+    align-items: baseline; /* Alinha os itens decorrente com o texto*/
+}
+
+.itemm{
+    background: white;
+    border: 1px solid red;
+    margin: 10px;
+}

@@ -1,0 +1,13 @@
+#caixa{
+    width: 200px;
+    height: 200px;
+    background: green;
+
+}
+
+#caixa:hover{
+    width: 300px;
+    background: yellow;
+    /*transition: width 3s, background 3s;*/
+    transition: all 3s;
+}
