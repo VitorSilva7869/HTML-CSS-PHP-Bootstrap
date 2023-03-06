@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+
+    <title>Bootstrap - botões</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+  </head>
+
+  <body>
+
+    <!-- Navegação
+    Tipos de navegação:
+        nav-pills
+        nav-tabs
+    opções de alinhamento: 
+        justify-content-center 
+        justify-content-end
+        flex-column
+    -->
+    <h2>Navegação simples / abas</h2>
+    <ul class="nav nav-tabs justify-content-center"> <!--nav: Junta os itens para criar a nav. Nav-tabs; Cria um estilo de tabela. justify-content-center; centraliza os itens"-->
+      <li class="nav-item">
+        <a href="# " class="nav-link ">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link active">Vitão</a> <!-- active: deixa ativado o botão. -->
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link disabled">Amarelo</a> <!-- Significa que o link esta desativado -->
+      </li> 
+    </ul>
+
+    <h2>Barra de navegação simples</h2>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- Navbar; cria uma navegação barra. navbar-expand-sm; deixa reponsivel -->
+        <a href="" class="navbar-brand">Chale hotel</a> <!-- Navbar-brand; Deixa no formato de logo, tirando none-->
+
+        <ul class="navbar-nav ml-auto" > <!-- Cria uma margim , botando para direita-->
+          <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="" class="nav-link">sobre</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="" class="nav-link">Historia</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="" class="nav-link">Amarelo</a></li>
+        </ul>
+    </nav>
+
+    <h2>Barra de navegação com menu responsivo</h2>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
+        <a href="" class="navbar-brand">Chale hotel</a> <!-- Navbar-brand; Deixa no formato de logo, tirando none. Data-toggle="collapse"; concta com a div. data-target="#nav-target; quando for clicado exibira os itens conectando-->
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navegacao"> <!--navbar-toggler; sconde o menu -->
+          <span class="navbar-toggler-icon" ></span> <!-- navbar-toggler-icon; cria o icone do menu. "-->
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navegacao"> <!-- Collapse; esconde os itens. Navbar-collapse; conecta deixando bonitinho -->
+          <ul class="navbar-nav ml-auto" > <!-- Cria uma margim , botando para direita-->
+            <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="" class="nav-link">sobre</a></li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="" class="nav-link">Historia</a></li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="" class="nav-link">Amarelo</a></li>
+          </ul>
+        </div>
+
+    </nav>
+
+
+    <h2>Barra de navegação com formulário</h2>
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
+      <a href="" class="navbar-brand">Chale hotel</a> <!-- Navbar-brand; Deixa no formato de logo, tirando none. Data-toggle="collapse"; concta com a div. data-target="#nav-target; quando for clicado exibira os itens conectando-->
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-target"> <!--navbar-toggler; sconde o menu -->
+        <span class="navbar-toggler-icon" ></span> <!-- navbar-toggler-icon; cria o icone do menu. "-->
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="nav-target"> <!-- Collapse; esconde os itens. Navbar-collapse; conecta deixando bonitinho -->
+        <ul class="navbar-nav ml-auto" > <!-- Cria uma margim , botando para direita-->
+          <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="" class="nav-link">sobre</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="" class="nav-link">Historia</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="" class="nav-link">Amarelo</a></li>
+        </ul>
+
+        <form action="" class="form-inline"> <!--- form-inline deixa os elementos na msma linha-->
+          <input type="text" class="form-control" placeholder="pesquisar..."> <!-- Form-control formata o input para um estilo-->
+          <button class="btn btn-outline-success">ok
+        </button>
+      </form>
+
+      </div>
+
+
+    </nav>
+    
+    <h2>Barra de navegação com menu dropdown</h2>
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
+      <a href="" class="navbar-brand">Chale hotel</a> <!-- Navbar-brand; Deixa no formato de logo, tirando none. Data-toggle="collapse"; concta com a div. data-target="#nav-target; quando for clicado exibira os itens conectando-->
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-target1"> <!--navbar-toggler; sconde o menu -->
+        <span class="navbar-toggler-icon" ></span> <!-- navbar-toggler-icon; cria o icone do menu. "-->
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="nav-target1"> <!-- Collapse; esconde os itens. Navbar-collapse; conecta deixando bonitinho -->
+        <ul class="navbar-nav ml-auto" > <!-- Cria uma margim , botando para direita-->
+          <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="" class="nav-link">sobre</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="" class="nav-link">Historia</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item  dropdown "> <!-- dropdown; Fala q o elemento vai ser um dropdown-->
+            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Amarelo</a> <!-- dropdown-toggle; Cria um traço. data-toggle="dropdown-toggle"; concta o com dropdown quando for apertado-->
+            <div class="dropdown-menu"> <!-- Esconde os itens fazendo um menu-->
+              <a href="" class="dropdown-item">Serviço 1</a>
+              <a href="" class="dropdown-item">Serviço 2</a>
+              <a href="" class="dropdown-item">Serviço 3</a>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+
+    </nav>    
+    
+    <!--Cores
+    opções: bg-primary, bg-secondary, bg-success, bg-info,
+    bg-warning, bg-danger, bg-light, bg-dark
+    -->
+    <h2>Cores</h2>
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary"> <!-- Navbar; cria uma navegação barra. navbar-expand-sm; deixa reponsivel -->
+      <a href="" class="navbar-brand">Chale hotel</a> <!-- Navbar-brand; Deixa no formato de logo, tirando none-->
+
+      <ul class="navbar-nav ml-auto" > <!-- Cria uma margim , botando para direita-->
+        <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="" class="nav-link">sobre</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="" class="nav-link">Historia</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="" class="nav-link">Amarelo</a></li>
+      </ul>
+    </nav>    
+
+    <!--Alinhamentos
+    opções: fixed-top, fixed-bottom, sticky
+    -->
+    <h2>Alinhamentos</h2>
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary fix fixed-top"> <!-- Navbar; cria uma navegação barra. navbar-expand-sm; deixa reponsivel. fixa-top; Fixa a barra de navegação no otopo-->
+      <a href="" class="navbar-brand">Chale hotel</a> <!-- Navbar-brand; Deixa no formato de logo, tirando none-->
+
+      <ul class="navbar-nav ml-auto" > <!-- Cria uma margim , botando para direita-->
+        <li class="nav-item"><a href="" class="nav-link">Home</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="" class="nav-link">sobre</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="" class="nav-link">Historia</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="" class="nav-link">Amarelo</a></li>
+      </ul>
+    </nav>    
+
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et libero id erat tristique fermentum placerat a erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ac lobortis quam. Nunc vestibulum tincidunt arcu, at scelerisque velit ornare et. Vestibulum ut malesuada nibh.</p>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+</html>
