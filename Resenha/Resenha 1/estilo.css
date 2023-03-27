@@ -1,0 +1,407 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Tahoma, sans-serif;
+
+}
+
+body{
+    background: #FAFAFA;
+    min-width: 900px;
+}
+
+header{
+    background: #3E54A3;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rodape{
+    font-size: 16px;
+    color: white;
+    
+}
+
+.rodape a{
+    color: white;
+}
+
+.rodape a:hover{
+    text-decoration: none;
+
+}
+
+/* Menu */
+
+nav{
+
+    height: 70px;
+    border-bottom: 1px solid #DBE5E6;
+}
+
+nav img{
+    position: absolute;
+    margin: 21px 40px;
+
+}
+
+#navegacao li{
+    float: right;
+    list-style: none;
+    margin: 26px 0;
+    padding-right: 17px;
+
+}
+
+#navegacao a{
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
+    padding-bottom: 3px;
+}
+
+.efeito-borda a:hover{
+    border-bottom: 2px solid red;
+}
+
+/* Area do pro*/
+#navegacao span{
+    background: #3E54A3;
+    border-radius: 2px;
+    color: white;
+    font-size: 12px;
+    padding: 2px 5px;
+
+}
+
+/* Area do Git*/
+
+#git a{
+    background: #1C2022;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 30px;
+}
+
+#git a:hover{
+
+    box-shadow: 3px 3px 10px black;
+}
+
+/* Postagens */
+
+.flex1{
+    display: flex;
+    justify-content: center;
+
+    height: 610px;
+    
+}
+
+#postagem1{
+
+    height: 100px;
+    width: 54%;
+    height: 80%;
+    margin: 1%;
+    margin-top: 5%;
+}
+
+#postagem1 h1{
+    font-size: 40px;
+    color: #3E54A3;
+    padding: 35px;
+    line-height: 60px;
+}
+
+#postagem1 p{
+    font-size: 17px;
+    margin-left: 35px;
+    line-height: 27px;
+}
+
+#postagem1 input{
+    width: 280px;
+    height: 50px;
+    margin: 35px;
+    border-radius: 30px;
+    background: #ED2C49;
+    color: white;
+    border: none;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#postagem1 input:hover{
+
+    box-shadow: 3px 3px 10px black;
+}
+
+
+#postagem2{
+    height: 100px;
+    width: 45%;
+    height: 80%;
+    margin: 1%;
+    margin-top: 5%;
+    
+}
+
+#postagem2 img{
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+
+/* _________Conteudo Carrossel_________*/
+
+#carrossel{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    padding-bottom: 30px    ;
+}
+
+#conteudo{
+    width: 290px;
+    height: 300px;
+    margin: 0 17px;
+    border-radius: 20px;
+}
+
+
+
+
+#carrossel img{
+    margin: 10px 115px ;
+    
+}
+
+#carrossel h3{
+    text-align: center;
+    font-size: 18px;
+    margin: 15px 5px;
+}
+
+#carrossel p{
+    text-align: center;
+    line-height: 25px;
+}
+
+
+h3.subtitulo{
+    text-align: center;
+    margin: 70px 0px;
+}
+
+
+/* _______________ALACK*_______________*/
+
+#alack{
+    margin: 0 auto;
+    margin-bottom: 100px;
+    width: 90%;
+    height: 600px;
+    background: #3E54A3;
+    border-radius: 15px;
+    
+}
+
+#imagem-alack{
+    width: 230px;
+    margin: 0 auto;
+    padding-top: 70px;
+    padding-bottom: 40px;
+}
+
+
+#alack h4{
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+#alack p{
+    text-align: center;
+    font-size: 25px;
+    line-height: 45px;
+    color: white;
+    margin: 50px 20px;
+}
+
+
+#alack form{
+    text-align: center;    
+}
+
+#email{
+    width: 400px;
+    height: 40px;
+    background: #3E54A3;
+    border-radius: 4px;
+    border: 1px solid white;
+    padding-left: 8px;
+    color: white;
+    font-size: 17px;
+}
+
+#botao{
+    width: 180px;
+    height: 41px;
+    border-radius: 20px;
+    border: none;
+    background: white;
+    font-size: 15px;
+    color: #3E54A3;
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+#botao:hover{
+    background: #a7a7a7;
+    cursor: pointer;
+}
+
+
+/* _______________Rodape_______________*/
+
+/* Logos */
+
+footer{
+    width: 100%;
+    background: white;
+
+}
+
+#rodape-logo{
+    
+    height: 100px;
+
+}
+
+#logo-Fronted img{
+    width: 250px;
+    float: left;
+    margin: 32.5px 30px;
+}
+
+#logo-social img{
+    width: 40px;
+    float: right;
+    margin: 30px 15px;
+}
+
+/* Informaçoes*/
+
+#informacoes{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom:  40px;
+    justify-content: space-between; /* Cria um espaçamento igual entre os elementos. Mantendo o primeiro grudado no início e o último no final.*/
+}
+
+/*local-email*/
+#local-email{
+    width: 450px;
+
+
+}
+
+#local-email h2{
+    margin-left: 30px;
+    color: #3E54A3;
+}
+
+#local-email p{
+    margin: 15px 30px 15px 30px; /* Top, Rigth, Botom, left */
+}
+
+#email2{
+    width: 230px;
+    height: 40px;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #3E54A3;
+    margin-left: 30px;
+    padding-left: 8px;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+#botao2{
+    width: 150px;
+    height: 50px;
+    margin-left: 15px;
+    border-radius: 30px;
+    background: #ED2C49;
+    color: white;
+    border: none;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+/*Tabelas*/
+
+#tabelas{
+    margin-left: 30px;
+    width: 744px;
+    justify-content: flex-end;
+
+}
+
+table{
+
+    width: 724px;
+    height: 100%;
+    border-collapse: separate; /* collapse junta as bordas*/
+}
+
+#tabelas th{
+    text-align: left;
+    padding: 0 0 10px 0;/* Top, Rigth, Botom, left */
+}
+
+#tabelas a{
+    text-decoration: none;
+    color: grey;
+}
+
+#tabelas a:hover{
+    text-decoration: underline;
+}
+
+/* ___________________Rodapé msmo_________________*/
+
+#rodape{
+    clear: both;
+    border-top: 1px solid #a7a7a7;
+    height: 70px;
+    text-align: center;
+}
+
+#rodape p{
+    text-decoration: none;
+    margin-top: 15px;
+    color: #a7a7a7;
+}
+
+#rodape a{
+    text-decoration: none;
+    margin-bottom: 15px;
+    color: #a7a7a7;
+
+}
+
+#rodape a:hover{
+    text-decoration: underline ;
+}

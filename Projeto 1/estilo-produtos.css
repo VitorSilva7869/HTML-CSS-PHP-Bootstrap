@@ -1,0 +1,326 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+html,body{
+    height: 100%;
+    overflow-x: hidden; /* Esconde a barra de rolagens*/
+}
+
+body{
+    background: #D9D9D9 url(imagens/Imagem\ de\ fundo.png);
+    background-attachment:fixed ;
+}
+
+/*Media*/
+@media (max-width: 574.98px) {
+    /* Navegação botao */
+    .navbotao{
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    /*______Rodape______*/
+    /* fontes tm*/
+    .icon-lg{
+        font-size: 3em;
+    }
+    .posicao{
+        text-align: center;
+    }
+    .mt-xs{
+        margin-top: 10px;
+    }
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 1px 4px;
+        font-size: 0.2rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
+    /*______Card_____*/
+    .estilo-card-h4{
+        font-size: 8px;
+    }
+    .estilo-card-p{
+        font-size: 5px;
+    }
+    /*________Ceta_______*/
+    .fa-3x{
+        font-size: 1em;
+    }
+  }
+  
+
+ @media (min-width: 575px) {
+    /* Navegação botao */
+
+    /*______Rodape______*/
+    /* fontes tm*/
+    .icon-lg{
+        font-size: 3em;
+
+    }
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 2px 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        border-radius: 0.3rem;
+    }
+    /*______Card_____*/
+    .estilo-card-h4{
+        font-size: 10px;
+    }
+    .estilo-card-p{
+        font-size: 6px;
+    }
+    /*________Ceta_______*/
+    .fa-3x{
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 768px){
+    /*______Rodape______*/
+    /* fontes tm*/
+    .tamanho-font-lg{
+        font-size: 14px;
+        
+    }
+    .tamanho-h4-lg{
+        font-size: 20px;
+    }
+    .icon-lg{
+        font-size: 2em;
+
+    }
+    
+
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
+
+    /*______Card_____*/
+    .estilo-card-h4{
+        font-size: 16px;
+    }
+    .estilo-card-p{
+        font-size: 11px;
+    }
+    /*________Ceta_______*/
+    .fa-3x{
+        font-size: 2em;
+    }
+
+    /*___________________*/
+    .icon-mgl{
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 992px){
+    
+    /*______Rodape______*/
+    /* fontes tm*/
+    .tamanho-font-xl{
+        font-size: 16px;
+    }
+
+    .tamanho-h4-xl{
+        font-size: 25px;
+    }
+    .icon-xl{
+        font-size: 2.5em;
+    }
+
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 0.4rem 0.8rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
+
+    /*______Card_____*/
+    .estilo-card-h4{
+        font-size: 22px;
+    }
+    .estilo-card-p{
+        font-size: 16px;
+    }
+    /*________Ceta_______*/
+    .fa-3x{
+        font-size: 2.5em;
+    }
+}
+
+@media (min-width: 1200px) {
+    /*______Rodape______*/
+    /* fontes tm*/
+    .tamanho-font-xl{
+        font-size: 17px;
+    }
+
+    .tamanho-h4-xl{
+        font-size: 30px;
+    }
+    .icon-xl{
+        font-size: 3em;
+    }
+    /*______Card_____*/
+    .estilo-card-h4{
+        font-size: 25px;
+    }
+    .estilo-card-p{
+        font-size: 16px;
+    }
+
+    /*________Ceta_______*/
+    .fa-3x{
+        font-size: 3em;
+    }
+}
+
+/*_______________Rodape______________*/
+footer li{
+    list-style: none;
+}
+
+footer p{
+    color: #D9D9D9;
+    margin: 0;
+    margin-left: 15px;
+}
+
+footer h4{
+    color: white;
+    letter-spacing: -0.07em;
+    margin-bottom: 8px;
+}
+
+
+footer li a{
+    color: #D9D9D9;
+    padding: 4px 0;
+    margin-left: 15px;
+    
+
+}
+
+footer li a:hover{
+    color: azure;
+}
+
+
+
+
+.bordar{
+    border-top-left-radius: 0 ;
+    border-bottom-left-radius: 0;
+}
+
+.bordal{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+
+
+
+
+/* _________________Conteudo produtos_______________*/
+
+.mb-mx{
+    margin-top: 100px;
+}
+
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 10px;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+section a:hover{
+    text-decoration:none; 
+}
+
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 5px 20px;
+}
+.card-title{
+    margin: 3px 0;
+}
+
+/*Ceta*/
+.prev-style-cinza {
+    width: 23px;
+    color: #343a40;
+    opacity: 1;
+}
+.prev-style-cinza:hover, .prev-style-cinza:focus{
+    color: #1e2022; 
+}
+
+
+.prev-style-marrom {
+    width: 23px;
+    color: #b35535;
+    opacity: 1;
+}   
+
+.prev-style-marrom:hover, .prev-style-marrom:focus{
+    color: #ff4000; 
+}
+
+.prev-style-azul {
+    width: 23px;
+    color: #1e308f;
+    opacity: 1;
+}  
+
+.prev-style-azul:hover, .prev-style-azul:focus{
+    color: #030e46; 
+}
+
+
+
+
+.carousel-item{
+    margin: 10px 0 ;
+}
+
+
+/* ____________CAmisa produto___________*/
+.text-marrom{
+    color: #b35535;
+}
+
+.text-azul{
+    color: #1e308f;
+}
