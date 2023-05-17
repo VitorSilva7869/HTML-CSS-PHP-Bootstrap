@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+html,body{
+    height: 100%;
+    overflow-x: hidden; /* Esconde a barra de rolagens*/
+}
+
+body{
+    background: #D9D9D9 url(imagens/fundo2.png);
+    background-attachment:fixed;
+} 
+
+
+@media (max-width: 575.98px) {
+
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .centrodiv{
+        margin: 0 auto;
+    }
+    .txt_center{
+        text-align: center;
+        color: aqua;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+
+.m-top{
+    margin-top: 160px;
+
+}
+
+
+/*______h1________*/
+
+
+
+/* .roxo-sinza{
+    background: #3A4D4C;
+    border-radius: 30px;
+} */
+
+h2{
+    margin-bottom: 60px;
+    float: left;
+    margin-right: 35px;
+}
+
+.bb_style{
+    padding-bottom: 3px;
+    border-bottom:3px solid #614573;
+    color: #614573;
+}
+
+.h22_style{
+    color: #a08faa;   
+    font-size: 25px;
+    padding-top: 5px;
+}
+.h22_style:hover{
+    color: #614573;
+}
+
+/*______IMG________*/
+
+.center {
+    margin: 50px auto !important;
+    float: none !important;
+}
+
+/*______FORMS_______*/
+
+/*email e senha*/
+div.sigle-inputs{
+    width: 350px;
+    margin-top: 30px;
+    margin-left: 5px;
+    position: relative; /* position: relative;altera a posição do elemento em relação ao elemento
+    pai e em relação a si mesmo e onde normalmente estaria no fluxo de documento regular da página.  */
+}
+
+div.sigle-inputs label{
+    font-size: 16px; /* Tamanho da fonte*/
+    left: 0; 
+    position: absolute;
+    color: #614573;
+    bottom: 8px;
+    cursor: text; 
+    transition: 0.5s ease-in-out; /*ease-in-out: realiza a transição com o início e final lentos */
+}
+
+div.sigle-inputs .input {
+    width: 100%;
+    padding: 3px;
+    background: transparent;
+    color: #614573;
+    border: 0; /* Tira a Borda */
+    border-bottom: 2px solid #614573;
+    outline: 0; /* Tira as bordas quando aperta no Input*/
+}
+
+div.sigle-inputs .input:focus, /* Ação para quando estiver focado no input */
+div.sigle-inputs .input:valid{ /* Quando sair e o inpit estiver um valor fica ativado. ""Required tem q estar ativado""*/
+    border-bottom: 2px solid #4B0075;
+}
+
+div.sigle-inputs .input:focus ~ label, /* Chama a Label com o ~ */
+div.sigle-inputs .input:valid ~ label{
+    transform: translateY(-24px); /* Move o Label*/
+    font-size: 12px; /* Diminui o label */
+    color: #180075;
+}
+
+/*Check box*/
+
+div.box{
+    width: 150px;
+    margin-left: 5px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #614573;
+}   
+
+.box input{
+    display: none;
+}
+
+.box input + label::before{
+    content: ''; /* para gerar conteúdo em um elemento */
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid gray;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+}
+
+.box input:checked + label:before {
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: center;
+    border: none;
+    background-color: #180075;
+    padding: 1px;
+}
+
+/*Botão*/
+
+.btn-outline-secondary {
+    color: #614573;
+    background-color: transparent;
+    background-image: none;
+    border-color: #614573;
+    margin-bottom: 20px;
+    margin-left: 211px;
+
+}
+
+.btn-outline-secondary:hover{
+    color: #fff;
+    background-color: #614573;
+    background-image: none;
+    border-color: #614573;
+    
+}
+
+.btn{
+    padding: 0.565rem 0.75rem;
+}
+
+/*google*/
+
+.google{
+    padding: 5px;
+    border-radius: 10px;
+    border:1px solid #614573;
+    color: #614573;
+}
+
+.google:hover{
+    color: #fff;
+    border:1px solid #614573;
+    background: #614573;
+}
+
+/*Transição*/
+.transicao_color{
+    transition: background-color .4s;
+}

@@ -53,18 +53,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 roxo-sinza">
-                    <h2 class="bb_style txt_cent">login</h2><a href="cadastrar.html"><h2 class="h22_style">Cadastrar</h2></a>
+                    <a href="logar.html"><h2 class="h22_style">login</h2></a><h2 class=" bb_style txt_cent">Cadastrar</h2>
                     <form class="">
-                        
+                        <div class="sigle-inputs centrodiv">
+                            <input required type="text" class="input" name="name" id='name' required /> <!-- Required obriga não estar vazio-->
+                            <label for="Lembrar">Nome do Usuario</label>
+                        </div>
                         <div class="sigle-inputs centrodiv">
                             <input required type="text" class="input"  name="gmail" id="email"/>
                             <label for="Lembrar">Email</label>
                         </div>
                         <div class="sigle-inputs centrodiv">
-                            <input required type="password" class="input" name="password1" id='password2' required /> <!-- Required obriga não estar vazio-->
+                            <input required type="password" class="input" name="name" id='password' required /> <!-- Required obriga não estar vazio-->
                             <label for="Lembrar">Senha</label>
                         </div>
-                        
+                        <div class="sigle-inputs centrodiv">
+                            <input required type="password" class="input" name="password2" id='password2' required /> <!-- Required obriga não estar vazio-->
+                            <label for="Lembrar">Repetir Senha</label>
+                        </div>
                         <div class="box centrodiv" >
                             <input id="checkbox" type="checkbox">
                             <label for="checkbox">Lembrar senha</label> <!-- Tem q ligar o "id" com o "For" nos imputs Box e Label-->
