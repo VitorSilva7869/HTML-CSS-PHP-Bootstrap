@@ -1,0 +1,271 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+html,body{
+    height: 100%;
+    overflow-x: hidden; /* Esconde a barra de rolagens*/
+}
+
+body{
+    background: #D9D9D9 url(imagens/Imagem\ de\ fundo.png);
+    background-attachment:fixed ;
+}
+
+
+@media (max-width: 574.98px) {
+    /* Navegação botao */
+    .navbotao{
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    /*______Rodape______*/
+    /* fontes tm*/
+    .icon-lg{
+        font-size: 3em;
+    }
+    .posicao{
+        text-align: center;
+    }
+    .mt-xs{
+        margin-top: 10px;
+    }
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 1px 4px;
+        font-size: 0.2rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
+
+  }
+  
+
+ @media (min-width: 575px) {
+    /* Navegação botao */
+    .navbotao{
+        margin-left: 30px;
+
+    }
+    /*______Rodape______*/
+    /* fontes tm*/
+    .icon-lg{
+        font-size: 3em;
+
+    }
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 2px 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        border-radius: 0.3rem;
+    }
+}
+
+@media (min-width: 768px){
+    /*______Rodape______*/
+    /* fontes tm*/
+    .tamanho-font-lg{
+        font-size: 14px;
+        
+    }
+    .tamanho-h4-lg{
+        font-size: 20px;
+    }
+    .icon-lg{
+        font-size: 2em;
+
+    }
+
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
+}
+
+@media (min-width: 992px){
+    
+    /*______Rodape______*/
+    /* fontes tm*/
+    .tamanho-font-xl{
+        font-size: 16px;
+    }
+
+    .tamanho-h4-xl{
+        font-size: 25px;
+    }
+    .icon-xl{
+        font-size: 2.5em;
+    }
+
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 0.4rem 0.8rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    /*______Rodape______*/
+    /* fontes tm*/
+    .tamanho-font-xl{
+        font-size: 17px;
+    }
+
+    .tamanho-h4-xl{
+        font-size: 30px;
+    }
+    .icon-xl{
+        font-size: 3em;
+    }
+}
+
+#Home{
+    background: #343a40;
+}
+
+section{
+    color: aliceblue;
+}
+
+.margincol{
+    margin: 20px;
+}
+
+/* ____________________produtos_________________ */
+
+.espaçamento-conteudos{
+    margin: 70px 0;
+    
+}
+
+.top{
+    margin-top: 70px;
+}
+
+.borda1{
+    border-radius: 15px;
+}
+
+
+.borda{
+    border: 3px solid #f8f9fa;
+}
+
+/*____________Sobre___________*/
+
+#sobre h1{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #080058;
+    font-weight: 900;
+    font-size: 51px;
+    
+}
+
+#sobre h2{
+    
+    color: #0E09B4 ;
+    letter-spacing: -0.07em;
+    font-size: 25px;
+}
+
+#sobre p{
+    margin-bottom: 20px;
+    color: #AD32E8;
+    letter-spacing: -0.07em;
+    font-size: 18px;
+}
+
+.img1{
+    width: 400px;
+}
+
+
+/*_________________Semana designer______________*/
+
+.img2{
+    width: 1200px;
+}
+
+.bodradius{
+    border-radius: 0;
+}
+
+/*____________ROdape__________*/
+
+
+/* Rodape contatos*/
+
+footer li{
+    list-style: none;
+}
+
+footer p{
+    color: #D9D9D9;
+    margin: 0;
+    margin-left: 15px;
+}
+
+footer h4{
+    color: white;
+    letter-spacing: -0.07em;
+    margin-bottom: 8px;
+}
+
+
+footer li a{
+    color: #D9D9D9;
+    padding: 4px 0;
+    margin-left: 15px;
+    
+
+}
+
+footer li a:hover{
+    color: azure;
+}
+
+/*===================================Aba Produtos===============================*/
+
+
+
+/*Transição*/
+.transicao_color{
+    transition: background-color .4s;
+}
+
+/*Tirar ceta menu*/
+
+.dropdown-toggle::after {
+    content: none;
+
+}
+
+/*paragrafo*/
+.mb-no{
+    margin-bottom: 0px;
+}
+
+/*Cor*/
+.bg-personalit{
+    background: #343a40;
+}
+
+
+.bg-style{
+    background: white;
+    border-radius: 5px;
+}
+
+.mt-10{
+    margin-top: 120px;
+}
