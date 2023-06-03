@@ -68,7 +68,7 @@
                     }/*elseif(!preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', trim($_POST["email"]))){
                         header("location: ../cadastrar.php?Erro=errorEmail");
                         $username_err = "O EMAIL do usuário digitado incorretamente, pode conter apenas letras minusculas sem simbolos como (/$@^~%&!)";
-                    }*/ else{
+                    }*/else{
                         $username = trim($_POST["gmail"]);
                     }
                 } else{
@@ -114,14 +114,14 @@
                 // Definir parâmetros
                 echo $nome;
 
-                $param_name = $nome;
+                $param_name = ucfirst($nome);
                 $param_email = $username;
                 $param_password = $password; //password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
                 
                 // Tente executar a declaração preparada
                 if($stmt->execute()){
                     // Redirecionar para a página de login
-                    header("location: ../logar.php"); 
+                    header("location: ../logar.php?concluido=concluidoMsg"); 
                 } else{     
                     echo "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
                 }

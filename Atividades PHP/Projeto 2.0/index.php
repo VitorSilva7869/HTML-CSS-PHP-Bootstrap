@@ -50,21 +50,27 @@
                         <a class="nav-link" href="#contato">Contatos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="produtos.html">Produtos</a>
+                        <a class="nav-link" href="produtos.php">Produtos</a>
                     </li>
-                    <li class="nav-item" >
-                        <a id="nav-botão" class="btn btn-outline-light navbotao transicao_color" href="logar.html">Entrar</a>
+                    <?php
+                    session_start(); 
+                    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){?>
+                    <li class="nav-item me-3" >
+                        <a id="nav-botão" class="btn btn-outline-light navbotao transicao_color" href="logar.php">Entrar</a>
                     </li>
+
+                    <?php }else{?>
                     <li class="nav-item dropdown me-3">
                         <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
                         
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="conta.html">Conta</a></li>
-                            <li><a class="dropdown-item" href="pedidos.html">Pedidos</a></li>
+                            <li><a class="dropdown-item" href="conta.php">Conta</a></li>
+                            <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                            <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
                         </ul>
                     </li>
+                    <?php } ?>
                 </ul>
             </div>
             

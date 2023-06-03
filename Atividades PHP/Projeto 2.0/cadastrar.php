@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Bootstrap link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -53,7 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 roxo-sinza">
-                    <a href="logar.html"><h2 class="h22_style">login</h2></a><h2 class=" bb_style txt_cent">Cadastrar</h2>
+                    <a href="logar.php"><h2 class="h22_style">login</h2></a><h2 class=" bb_style txt_cent">Cadastrar</h2>
                     <form action="php/cadastrar_cod.php" method="post" class="">
                         <div class="sigle-inputs centrodiv">
                             <input required type="text" class="input" name="name" id='name' required /> <!-- Required obriga não estar vazio-->

@@ -10,7 +10,7 @@ html,body{
 }
 
 body{
-    background: #D9D9D9 url(imagens/fundo2.png);
+    background: #D9D9D9 url(../imagens/fundo2.png);
     background-attachment:fixed;
 } 
 
@@ -207,4 +207,34 @@ div.box{
 /*Transição*/
 .transicao_color{
     transition: background-color .4s;
+}
+
+/*paragrafo*/
+.mb-no{
+    margin-bottom: 0px;
+}
+
+/*Cor*/
+.bg-personalit{
+    background: #343a40;
+}
+
+
+.bg-style{
+    background: white;
+    border-radius: 10px;
+}
+
+.mt-10{
+    margin-top: 120px;
+}
+
+
+
+
+/*Tirar ceta*/
+
+.dropdown-toggle::after {
+    content: none;
+
 }

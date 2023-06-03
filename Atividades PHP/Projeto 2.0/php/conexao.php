@@ -25,6 +25,7 @@
     
     
     // Credenciais do banco de dados. Supondo que você esteja executando o MySQL servidor com configuração padrão (usuário 'root' sem senha)
+    
     define('DB_SERVER', 'localhost');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '');
