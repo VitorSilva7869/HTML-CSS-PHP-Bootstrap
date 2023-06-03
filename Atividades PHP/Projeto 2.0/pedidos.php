@@ -1,3 +1,8 @@
+<?php
+    require_once "php/conexao.php";
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,15 +73,33 @@
         <div class="bg-style container">
             <div class="row">
                 <div class="col">
+                    <?php  
+                        //Consultar SQL
+                        $id_Usuario = $_SESSION['id'];
+
+                        $sql ='SELECT v.id, p.titulo, p.name_imagem, p.estilo_roupa, v.quantidade, v.total, v.tamanho
+                            FROM venda v
+                            INNER JOIN produto p ON v.produto_id = p.id
+                            WHERE v.usuario_id = :usuario_id';
+
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(':usuario_id', $id_Usuario);
+                        $stmt->execute();
+
+                        if ($stmt->rowCount() > 0) {
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                $estilo_roupa = $row['estilo_roupa'];
+                                $pasta =  ucfirst($estilo_roupa);
+                    ?>
                     <div class=" d-flex mt-4 mb-4 ms-1 me-5 " >
                         <div class=" me-4">
-                            <img src="imagens/Casaco/Casaco.png" class="" style="width: 100px; height: 100px;" alt="">
+                            <img src="imagens/<?php echo $pasta; ?>/<?php echo $row['name_imagem'] ?>" class="" style="width: 100px; height: 100px;" alt="">
                         </div>
                         <div class="">
-                            <h4 class="text-secondary fw-bold mb-no">Smile</h4>
-                            <p class="text-secondary mb-no">Tamanho: <span class="fw-bold">P</span></p>
-                            <p class="text-secondary mb-no">Quantidade: <span class="fw-bold">2 Unidades</span></p>
-                            <p class="text-secondary mb-no">Dia de chegada: <span class="fw-bold">22/05</span></p>
+                            <h4 class="text-secondary fw-bold mb-no"><?php echo $row['titulo'] ?></h4>
+                            <p class="text-secondary mb-no">Tamanho: <span class="fw-bold"><?php echo $row['tamanho'] ?></span></p>
+                            <p class="text-secondary mb-no">Quantidade: <span class="fw-bold"><?php echo $row['quantidade'] ?> Unidades</span></p>
+                            <p class="text-secondary mb-no">Valor total: <span class="fw-bold"><?php echo $row['total'] ?></span></p>
 
                         </div>
                         <div class="ms-auto align-self-center ">
@@ -85,41 +108,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class=" d-flex mt-4 mb-4 ms-1 me-5 " >
-                        <div class=" me-4">
-                            <img src="imagens/Casaco/Casaco.png" class="" style="width: 100px; height: 100px;" alt="">
-                        </div>
-                        <div class="">
-                            <h4 class="text-secondary fw-bold mb-no">Smile</h4>
-                            <p class="text-secondary mb-no">Tamanho: <span class="fw-bold">P</span></p>
-                            <p class="text-secondary mb-no">Quantidade: <span class="fw-bold">2 Unidades</span></p>
-                            <p class="text-secondary mb-no">Dia de chegada: <span class="fw-bold">22/05</span></p>
-
-                        </div>
-                        <div class="ms-auto align-self-center ">
-                            <button type="button" class="btn btn-outline-secondary" style="padding: 5px 10px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Comprar mais<i class="fa-sharp fa-solid fa-basket-shopping ms-2"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class=" d-flex mt-4 mb-4 ms-1 me-5 " >
-                        <div class=" me-4">
-                            <img src="imagens/Casaco/Casaco.png" class="" style="width: 100px; height: 100px;" alt="">
-                        </div>
-                        <div class="">
-                            <h4 class="text-secondary fw-bold mb-no">Smile</h4>
-                            <p class="text-secondary mb-no">Tamanho: <span class="fw-bold">P</span></p>
-                            <p class="text-secondary mb-no">Quantidade: <span class="fw-bold">2 Unidades</span></p>
-                            <p class="text-secondary mb-no">Dia de chegada: <span class="fw-bold">22/05</span></p>
-
-                        </div>
-                        <div class="ms-auto align-self-center ">
-                            <button type="button" class="btn btn-outline-secondary" style="padding: 5px 10px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Comprar mais<i class="fa-sharp fa-solid fa-basket-shopping ms-2"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
+                    <?php }}else{echo 'Não foi comprado nenhum produto'; } ?>
                 </div>
             </div>
         </div>
