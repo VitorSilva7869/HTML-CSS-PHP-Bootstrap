@@ -38,19 +38,20 @@
                     <div class="ms-auto"  > <!-- Collapse; esconde os itens. Navbar-collapse; conecta deixando bonitinho -->
                         <ul class="navbar-nav me-2 bordabotom">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html" aria-current="page">Home</a>
+                                <a class="nav-link" href="index.php" aria-current="page">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link me-3" href="produtos.html">Produtos</a>
+                                <a class="nav-link me-3" href="produtos.php">Produtos</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
                                 
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="conta.html">Conta</a></li>
-                                    <li><a class="dropdown-item" href="pedidos.html">Pedidos</a></li>
+                                    <li><a class="dropdown-item" href="conta.php">Conta</a></li>
+                                    <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
+                                    <li><a class="dropdown-item" href="meus_produtos.php">Meus produtos</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Sair</a></li>
+                                    <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
                                 </ul>
                             </li>
                             
@@ -75,7 +76,7 @@
                             <label for="select_roupa" class="form-label fw-bold mt-2">Tipo da Roupa</label>
                             <select class="form-select ms-2" name="select_roupa" id="select_roupa" aria-label="Default select example">
                                 <option value="camisa">Camisa</option>
-                                <option value="calca">Calca</option>
+                                <option value="calca">Calça</option>
                                 <option value="moleton">Moleton</option>
                                 <option value="short">Short</option>
                             </select>

@@ -3,6 +3,7 @@
 
     include_once "php/conexao.php";
     session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -51,20 +52,29 @@
                                 <li class="nav-item">
                                     <a class="nav-link active me-3" href="produtos.php">Produtos</a>
                                 </li>
-                                <form action="" class="d-flex icon-mgl me-3"> <!--- form-inline deixa os elementos na msma linha-->
-                                    <input type="text" class="form-control bordal" placeholder="pesquisar..."> <!-- Form-control formata o input para um estilo-->
-                                    <button class="btn btn-outline-light bordar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <form action="pesquisa_tudo.php" method="post" class="d-flex icon-mgl me-3">
+                                    <input type="text" class="form-control bordal" name="pesquisa" placeholder="pesquisar..."> <!-- Form-control formata o input para um estilo-->
+                                    <button type="submit" class="btn btn-outline-light bordar"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
-                                <li class="nav-item dropdown">
-                                    <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
-                                    
-                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                        <li><a class="dropdown-item" href="conta.php">Conta</a></li>
-                                        <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
-                                    </ul>
-                                </li>
+                                <?php
+                                if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){?>
+                                    <li class="nav-item me-3" >
+                                        <a id="nav-botão" class="btn btn-outline-light navbotao transicao_color" href="logar.php">Entrar</a>
+                                    </li>
+
+                                <?php }else{?>
+                                    <li class="nav-item dropdown me-3">
+                                        <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                                        
+                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                                            <li><a class="dropdown-item" href="conta.php">Conta</a></li>
+                                            <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
+                                            <li><a class="dropdown-item" href="meus_produtos.php">Meus produtos</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
+                                        </ul>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div> 
 
@@ -72,6 +82,23 @@
                 </div>
             </nav>
         </header>
+        <?php if(isset($_GET['erro']) && $_GET['erro'] == 'erroUsuarioDeslogado'){ ?>
+            <div class="alert alert-warning alert-dismissible fade show" style="margin: 100px;" role="alert">
+                <strong>Usuario não logado!</strong> Voce esta tentando comprar um produto sem estar Logado com a conta.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        <?php }elseif(isset($_GET['erro']) && $_GET['erro'] == 'erroUsuarioAdm'){ ?> 
+            <div class="alert alert-warning alert-dismissible fade show" style="margin: 100px;" role="alert">
+                <strong>Adminitrador!</strong> Voce não pode comprar um produto commo ADM, logue na sua conta pessoal.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php }elseif(isset($_GET['erro']) && $_GET['erro'] == 'erroUsuarioQuantidade'){ ?>
+            <div class="alert alert-warning alert-dismissible fade show" style="margin: 100px;" role="alert">
+                <strong>Adcione a quantidade</strong> Voce esqueceu de adcionar a quantidade de produto.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php }?>
 
         <section id="produtos" class="mb-mx">
             <div class="container">
@@ -90,11 +117,13 @@
 
                                 $chunked_results = array_chunk($resultados, 5); // Divide o array de resultados em pedaços de tamanho 4
                                 $active = true; // Flag para determinar se o item do carrossel é ativo ou não
-
+                                
+                                $cont = 0;
                                 foreach ($chunked_results as $chunk) {
                                     echo '<div class="carousel-item ' . ($active ? 'active' : '') . '">'; // Definindo a classe 'active' para o primeiro item
 
                                         echo '<div class="card-group">';
+                                        
 
                                             foreach ($chunk as $row) {
                                                 $titulo = $row['titulo'];
@@ -102,6 +131,7 @@
                                                 $valor = $row['preco'];
                                                 $imagem = $row['name_imagem'];
                                                 $id_produto = $row['id'];
+
                                                 
 
                                                 echo '<div class="card">';
@@ -114,11 +144,16 @@
                                                     echo '</a>';
                                                 echo '</div>';
                                             }
-
+                                            
+                                            echo '</div>';
                                         echo '</div>';
-                                    echo '</div>';
 
                                     $active = false; // Desativa a classe 'active' para os próximos itens
+                                    $cont++;
+                                    
+                                    if($cont >= 2){
+                                        break;
+                                    }
                                 }
                                 ?>
                                 
@@ -161,6 +196,7 @@
                                 $chunked_results = array_chunk($resultados, 5); // Divide o array de resultados em pedaços de tamanho 4
                                 $active = true; // Flag para determinar se o item do carrossel é ativo ou não
 
+                                $cont =0;
                                 foreach ($chunked_results as $chunk) {
                                     echo '<div class="carousel-item ' . ($active ? 'active' : '') . '">'; // Definindo a classe 'active' para o primeiro item
 
@@ -172,7 +208,6 @@
                                                 $valor = $row['preco'];
                                                 $imagem = $row['name_imagem'];
                                                 $id_produto = $row['id'];
-                                                
 
                                                 echo '<div class="card">';
                                                     echo '<a href="tela_produto.php?id_produto='. $id_produto .'" class="text-decoration-none">';
@@ -187,8 +222,12 @@
 
                                         echo '</div>';
                                     echo '</div>';
-
+                                    $cont++;
                                     $active = false; // Desativa a classe 'active' para os próximos itens
+                                            
+                                    if($cont >= 2){
+                                        break;
+                                    }
                                 }
                                 ?>
                                 
@@ -231,6 +270,7 @@
                                 $chunked_results = array_chunk($resultados, 5); // Divide o array de resultados em pedaços de tamanho 4
                                 $active = true; // Flag para determinar se o item do carrossel é ativo ou não
 
+                                $cont =0;
                                 foreach ($chunked_results as $chunk) {
                                     echo '<div class="carousel-item ' . ($active ? 'active' : '') . '">'; // Definindo a classe 'active' para o primeiro item
 
@@ -256,8 +296,13 @@
 
                                         echo '</div>';
                                     echo '</div>';
-
+                                    
+                                    $cont++;
                                     $active = false; // Desativa a classe 'active' para os próximos itens
+                                
+                                    if($cont >= 2){
+                                        break;
+                                    }
                                 }
                                 ?>
                                 

@@ -6,7 +6,7 @@
 
     //Condiçoes para não auterar a URL
     $idsArrey = array();
-    for($i = 1; $i <= 30; $i++){
+    for($i = 1; $i <= 50; $i++){
         $idsArrey[] = $i;
 
     }
@@ -31,6 +31,7 @@
     }
 
     //$pasta = ucfirst($estilo);
+    $id = $_GET['id_produto'];
 
     $stmt = $pdo->prepare("SELECT * FROM produto WHERE id = :id");
     $stmt->bindParam(':id', $id);
@@ -99,20 +100,26 @@
                             <li class="nav-item">
                                 <a class="nav-link active me-3" href="produtos.php">Produtos</a>
                             </li>
-                            <form action="" class="d-flex icon-mgl me-3"> <!--- form-inline deixa os elementos na msma linha-->
-                                <input type="text" class="form-control bordal" placeholder="pesquisar..."> <!-- Form-control formata o input para um estilo-->
-                                <button class="btn btn-outline-light bordar"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </form>
-                            <li class="nav-item dropdown">
-                                <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
-                                
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="conta.php">Conta</a></li>
-                                    <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
-                                </ul>
-                            </li>
+
+                            <?php
+                                if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){?>
+                                    <li class="nav-item me-3" >
+                                        <a id="nav-botão" class="btn btn-outline-light navbotao transicao_color" href="logar.php">Entrar</a>
+                                    </li>
+
+                                <?php }else{?>
+                                    <li class="nav-item dropdown me-3">
+                                        <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                                        
+                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                                            <li><a class="dropdown-item" href="conta.php">Conta</a></li>
+                                            <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
+                                            <li><a class="dropdown-item" href="meus_produtos.php">Meus produtos</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
+                                        </ul>
+                                    </li>
+                            <?php } ?>
                         </ul>
                     </div> 
 
@@ -121,7 +128,7 @@
         </nav>
     </header>
 
-
+    
     <form action="php/compra_cod.php?idProduto=<?php echo $id_produto; ?>" method="post">
         <section class=" mt-10 " style="margin-bottom: 170px;">
             <div class="bg-style container">
@@ -172,7 +179,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Continuar?</h1>
-                                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    
                                     </div>
                                     <div class="modal-body">
                                         
@@ -207,7 +214,7 @@
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                                    <input type="submit" class="btn btn-success">Avançar</a>
+                                    <input type="submit" class="btn btn-success" value="avançar">
                                     </div>
                                 </div>
                                 </div>

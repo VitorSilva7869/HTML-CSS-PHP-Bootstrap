@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validar credenciais
     if(empty($email_err) && empty($password_err)){
         // Prepare uma declaração selecionada
-        $sql = "SELECT id, email, password, name, cpf, telefone FROM Usuario WHERE email = :email";
+        $sql = "SELECT id, email, password, name, cpf, telefone FROM administrador WHERE email = :email";
         
         if($stmt = $pdo->prepare($sql)){
             // Vincule as variáveis à instrução preparada como parâmetros
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["nome"] = $name; 
                             $_SESSION["cpf"] = $cpf;
                             $_SESSION["telefone"] = $telefone;  
-                            $_SESSION["adm"] = false;
+                            $_SESSION["adm"] = true;
 
                             
                             
@@ -71,13 +71,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         } else{
                             // A senha não é válida, exibe uma mensagem de erro 
                             echo $login_err = "Nome de usuário ou senha inválidos.";
-                            header("location: ../logar.php?Erro=errorPassword");
+                            header("location: ../administrador.php?Erro=errorPassword");
                         }
                     }
                 } else{
                     // O nome de usuário não existe, exibe uma mensagem de erro genérica
                     $login_err = "Nome de usuário ou senha inválidos.";
-                    header("location: ../logar.php?Erro=errorEmail");
+                    header("location: ../administrador.php?Erro=errorEmail");
                 }
             } else{
                 echo "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";

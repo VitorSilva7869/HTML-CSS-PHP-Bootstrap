@@ -3,9 +3,9 @@
 
     include_once "php/conexao.php";
     session_start();
-
+    $pesquisa = $_POST['pesquisa'];
     //Condiçoes para não auterar a URL
-    $tipos = array('camisa', 'moleton', "calca");
+    /*$tipos = array('camisa', 'moleton', "calca");
     
     $trueOrFalse = false;
     if(isset($_GET['estilo_roupa'])){
@@ -22,7 +22,7 @@
         }
     }else{
         header("location: produtos.php"); 
-    }
+    }*/
 ?>
 
 <!DOCTYPE html>
@@ -71,8 +71,8 @@
                                 <li class="nav-item">
                                     <a class="nav-link active me-3" href="produtos.php">Produtos</a>
                                 </li>
-                                <form action="pesquisa_especifico.php?estilo=<?php echo $estilo;?>" method="post" class="d-flex icon-mgl me-3"> <!--- form-inline deixa os elementos na msma linha-->
-                                    <input type="text" class="form-control bordal" value="" name="pesquisa" placeholder="pesquisar..."> <!-- Form-control formata o input para um estilo-->
+                                <form action="pesquisa_tudo.php" method="post" class="d-flex icon-mgl me-3"> <!--- form-inline deixa os elementos na msma linha-->
+                                    <input type="text" class="form-control bordal" value="<?php echo $pesquisa; ?>" name="pesquisa" placeholder="pesquisar..."> <!-- Form-control formata o input para um estilo-->
                                     <button type="submit" class="btn btn-outline-light bordar"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
                                 <li class="nav-item dropdown">
@@ -81,7 +81,7 @@
                                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                                         <li><a class="dropdown-item" href="conta.php">Conta</a></li>
                                         <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
-                                        <li><a class="dropdown-item" href="meus_produtos.php">Meus produtos</a></li>
+                                        <li><a class="dropdown-item disabled" href="meus_produtos.php">Meus produtos</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
                                     </ul>
@@ -96,17 +96,21 @@
 
         <?php
         //Botar em maiusculo para procurar pasta imagem
-        $pasta = ucfirst($estilo);
-
-        $stmt = $pdo->prepare("SELECT * FROM produto WHERE estilo_roupa = :estilo");
-        $stmt->bindParam(':estilo', $estilo);
+        
+        //$id = $_SESSION['id'];
+        $pesquisa = $_POST['pesquisa'];
+        $stmt = $pdo->prepare("SELECT * FROM produto WHERE LEFT(titulo, 1) = :pesquisa");
+        $stmt->bindParam(':pesquisa', $pesquisa);
 
         $stmt->execute();
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <section id="produtos" class="mb-mx">
             <div class="container">
-                <h1 class="text-dark mb-3">Camisas</h1>
+                
+                <?php if(!empty($resultados)){ ?>
+                    <h1 class="text-dark mb-3">Resultado da pesquisa</h1>
+                
                 <div class="row row-cols-1 row-cols-sm-4 g-4">
                     <?php
                         //$contador = 0;
@@ -120,7 +124,8 @@
                             $descricao = $row['descricao'];
                             $valor = $row['preco'];
                             $imagem = $row['name_imagem'];
-                            
+                            $estilo = $row['estilo_roupa'];
+                            $pasta = ucfirst($estilo);
 
                             echo '<div class="col">';
                                 echo '<div class="card">';
@@ -134,15 +139,64 @@
                                 echo '</div>';
                             echo '</div>';
                             //$contador++;
-                        } 
-                    ?>
-                    
+                        }?>
                 </div>
-                <div class="d-flex justify-content-center mt-4">
-                    <a href="#" class="btn btn-outline-dark ">Ver menos</a>
-                </div>
+                <?php }else{ ?>
+                    <div class="col" style="margin-bottom: 290px;" role="alert">
+                        <div class="d-flex justify-content-center">
+                            <h2 class="">Nenhum resultado na pesquisa "<?php echo $pesquisa;?>" encontrada</h2></i>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <img src="imagens/pesquisa.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                <?php } ?>
             </div>
         </section>
+
+        <footer class=" bg-dark pt-5 mt-5">
+            <div class="container">
+                <div class="row">
+                    <div id="contato" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-4 posicao">
+                        <ul>
+                            <h4 class="tamanho-h4-lg tamanho-h4-xl ">Contato</h4>
+                            <li><p class="tamanho-font-lg tamanho-font-xl">(71) 9136-7621</p></li>
+                            <li><p class="tamanho-font-lg tamanho-font-xl">(71) 9136-7621</p></li>
+                            <li><p class="tamanho-font-lg tamanho-font-xl">(71) 9136-7621</p></li>
+                            <li><p class="tamanho-font-lg tamanho-font-xl">(71) 9136-7621</p></li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 d-none col-md-3 d-md-block">
+                        <ul class="">
+                            <h4 class="tamanho-h4-lg tamanho-h4-xl">Compania</h4>
+                            <li><a class="tamanho-font-lg tamanho-font-xl" href="">Sobre</a></li>
+                            <li><a class="tamanho-font-lg tamanho-font-xl" href="">emprego</a></li>
+                            <li><a class="tamanho-font-lg tamanho-font-xl" href="">Emprensa</a></li>
+                            <li><a class="tamanho-font-lg tamanho-font-xl" href="">Novidades</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 d-none col-md-3 d-md-block">
+                        <ul>
+                            <h4 class="tamanho-h4-lg tamanho-h4-xl">Novidades</h4>
+                            <li><a class="tamanho-font-lg tamanho-font-xl" href="">Roupas</a></li>
+                            <li><a class="tamanho-font-lg tamanho-font-xl" href="">Acesorios</a></li>
+                            <li><a class="tamanho-font-lg tamanho-font-xl" href="">Calçados</a></li>
+                            <li><a class="tamanho-font-lg tamanho-font-xl" href="">Moda</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-8">
+                        <div class="float-sm-right posicao mt-xs">
+                            <a href=""><i class="fa-brands fa-facebook icon-xl icon-lg text-white"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram icon-xl icon-lg ml-4 text-white"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter icon-xl icon-lg ml-4 text-white"></i></a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </footer>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

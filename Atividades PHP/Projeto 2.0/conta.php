@@ -3,7 +3,7 @@
     <?php
     
     session_start();
-    
+    $adm = $_SESSION['adm'];
     
     ?>
 <head>
@@ -45,17 +45,21 @@
                     <div class="ms-auto"  > <!-- Collapse; esconde os itens. Navbar-collapse; conecta deixando bonitinho -->
                         <ul class="navbar-nav me-2 bordabotom">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html" aria-current="page">Home</a>
+                                <a class="nav-link" href="index.php" aria-current="page">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link me-3" href="produtos.html">Produtos</a>
+                                <a class="nav-link me-3" href="produtos.php">Produtos</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
                                 
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="conta.html">Conta</a></li>
-                                    <li><a class="dropdown-item" href="pedidos.html">Pedidos</a></li>
+                                    <li><a class="dropdown-item disabled" href="conta.php">Conta</a></li>
+                                    <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
+                                    <li><a class="dropdown-item" href="meus_produtos.php">Meus produtos</a></li>
+                                    <?php if($adm){ ?>
+                                    <li><a class="dropdown-item" href="php/informaçoesUsuarios.php">Infromaçoes Usuario</a></li>
+                                    <?php } ?>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
                                 </ul>
@@ -75,13 +79,21 @@
     $nome_sess = $_SESSION['nome'];
     $cpf_sess = $_SESSION['cpf'];
     $tell_sess = $_SESSION['telefone'];
+    $adm = $_SESSION['adm'];
+    echo $imgAvatar = $_SESSION['imagenAvatar'];
+
+
 
     ?>
     <section class=" mt-10 mb-5 ">
         <div class="bg-style container">
             <div class="row">
                 <div class="col mt-4 mb-4 ms-4 me-4">
-                    <h4 class="mb-no fw-bold">Meu perfil</h4>
+                    <?php if($adm){?>
+                        <h4 class="mb-no fw-bold">Conta administrativa</h4>
+                    <?php }else{ ?>
+                        <h4 class="mb-no fw-bold">Meu perfil</h4>
+                    <?php } ?>
                     <p class="p-style mb-6" >Informaçoes sobre a conta</p>
                     <div class="row ">
                         <div class=" col-8 " >
@@ -112,8 +124,13 @@
                         </div>
                         <div class="col-4 bo-style">
                             <div class="d-flex justify-content-center mt-3">
-                                <div class="rounded-circle bg-danger" style="width: 120px; height: 120px;"></div>
-                                
+                                <?php if(isset($_SESSION['vatar']) == false){?>
+                                    <div class="rounded-circle bg-danger" style="width: 120px; height: 120px;"></div>
+                                <?php }else{ ?>
+                                    <!--<div class="rounded-circle" style="width: 120px; height: 120px; background: #D9D9D9 url(imagens/Avatar/<?php echo $imgAvatar ?>);"></div>-->
+                                    <img class="rounded-circle" style="width: 120px; height: 120px;" src="imagens/Avatar/<?php echo $imgAvatar ?>" alt="">
+
+                                <?php } ?>    
                             </div>
                             <div class="d-flex justify-content-center mt-3">
                                 <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#modalForm">Trocar imagem</button>
@@ -149,7 +166,7 @@
                             <i class="fas fa-store mt-4 me-2"></i><h2 class="text-center mt-3">adcionar produto</h2><i class="fas fa-store mt-4 ms-2"></i>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <a href="adcionar_produto.html" class="btn btn-outline-secondary btn-lg mt-2">Adicionar</a>
+                            <a href="adcionar_produto.php" class="btn btn-outline-secondary btn-lg mt-2">Adicionar</a>
                         </div>
                     </div>
                 </div>

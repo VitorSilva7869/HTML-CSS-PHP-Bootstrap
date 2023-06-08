@@ -1,10 +1,18 @@
-<?php
-    require_once "php/conexao.php";
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    
+    session_start();
+    include_once "conexao.php";
+
+    $adm = $_SESSION['adm'];
+
+    $stmt = $pdo->prepare("SELECT id,name,email,cpf,telefone FROM usuario");
+
+    $stmt->execute();
+    $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +26,7 @@
     <script src="https://kit.fontawesome.com/8e383bc8aa.js" crossorigin="anonymous"></script>
 
     <!-- Estiolo link-->
-    <link rel="stylesheet" href="css/estilo_pedido.css">
+    <link rel="stylesheet" href="../css/estilo_conta.css">
 
     <!-- icone -->
     
@@ -31,6 +39,7 @@
 
 </head>
 <body>
+    
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-personalit fixed-top"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
             <div class="container-fluid">
@@ -52,75 +61,82 @@
                                 <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
                                 
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="conta.php">Conta</a></li>
-                                    <li><a class="dropdown-item disabled" href="pedidos.php">Pedidos</a></li>
-                                    <li><a class="dropdown-item" href="meus_produtos.php">Meus produtos</a></li>
+                                    <li><a class="dropdown-item" href="../conta.php">Conta</a></li>
+                                    <li><a class="dropdown-item" href="../pedidos.php">Pedidos</a></li>
+                                    <li><a class="dropdown-item" href="../meus_produtos.php">Meus produtos</a></li>
+                                    <?php if($adm){ ?>
+                                    <li><a class="dropdown-item disabled" href="informaçoesUsuarios.php">Infromaçoes Usuario</a></li>
+                                    <?php } ?>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
+                                    <li><a class="dropdown-item" href="../deslog_cod.php">Sair</a></li>
                                 </ul>
                             </li>
                             
                         </ul>
                     </div> 
                 </div>
-                
-                
             </div>
         </nav>
     </header>
 
-    <section class=" mt-10 mb-5 ">
-        <h1 class=" fw-bold text-center" >Pedidos</h1>
-        <div class="bg-style container">
-            <div class="row">
-                <div class="col">
-                    <?php  
-                        //Consultar SQL
-                        $id_Usuario = $_SESSION['id'];
+    <div class="container">
+        <div class="row ">
+            <div class="col">
+                <h2 class="text-center" style="margin-top: 130px;">Informaçoes dos Usuarios</h2>
+                <table class="table table-dark table-striped table-bordered" style="margin-bottom: 100px;">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">NOME</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">TELEFONE</th>
+                            <th scope="col "></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($resultado as $row){
+                            $idUsuario = $row['id'];
+                            $nomeUsuario = $row['name'];
+                            $emailUsuario = $row['email'];
+                            $cpfUsuario = $row['cpf'];
+                            $telefoneUsuario = $row['telefone'];
+                            ?>
+                            <tr>
+                            <th scope="row"><?php echo $idUsuario ?></th>
+                                <td><?php echo $nomeUsuario ?></td>
+                                <td><?php echo $emailUsuario ?></td>
+                                <td><?php echo $cpfUsuario ?></td>
+                                <td><?php echo $telefoneUsuario ?></td>
+                                <td><div class="d-flex justify-content-center excluir-usuario"><button class="btn btn-outline-secondary excluir-btn" data-id="<?php echo $idUsuario ?>"><i class="fa-solid fa-trash text-danger "></i></button></div></td>
+                                <script>
 
-                        $sql ='SELECT v.id, p.titulo, p.name_imagem, p.estilo_roupa, v.quantidade, v.total, v.tamanho, v.produto_id
-                            FROM venda v
-                            INNER JOIN produto p ON v.produto_id = p.id
-                            WHERE v.usuario_id = :usuario_id';
+                                        var excluirButtons = document.getElementsByClassName("excluir-btn");
+                                        for (var i = 0; i < excluirButtons.length; i++) {
+                                            excluirButtons[i].addEventListener("click", function() {
+                                                var idUsuario = this.getAttribute('data-id');
+                                                window.location.href = "excluir_usuario.php?idUsuario=" + idUsuario;
+                                            });
+                                        }
 
-                        $stmt = $pdo->prepare($sql);
-                        $stmt->bindParam(':usuario_id', $id_Usuario);
-                        $stmt->execute();
-
-                        if ($stmt->rowCount() > 0) {
-                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                $estilo_roupa = $row['estilo_roupa'];
-                                $pasta =  ucfirst($estilo_roupa);
-                    ?>
-                    <div class=" d-flex mt-4 mb-4 ms-1 me-5 " >
-                        <div class=" me-4">
-                            <img src="imagens/<?php echo $pasta; ?>/<?php echo $row['name_imagem'] ?>" class="" style="width: 100px; height: 100px;" alt="">
-                        </div>
-                        <div class="">
-                            <h4 class="text-secondary fw-bold mb-no"><?php echo $row['titulo'] ?></h4>
-                            <p class="text-secondary mb-no">Tamanho: <span class="fw-bold"><?php echo $row['tamanho'] ?></span></p>
-                            <p class="text-secondary mb-no">Quantidade: <span class="fw-bold"><?php echo $row['quantidade'] ?> Unidades</span></p>
-                            <p class="text-secondary mb-no">Valor total: <span class="fw-bold"><?php echo $row['total'] ?></span></p>
-
-                        </div>
-                        <div class="ms-auto align-self-center ">
-                            <a href="tela_produto.php?id_produto=<?php echo $row['produto_id'] ?> " class="btn btn-outline-secondary" style="padding: 5px 10px;">
-                                Comprar mais<i class="fa-sharp fa-solid fa-basket-shopping ms-2"></i>
-                            </a>
+                                </script>
+                            </tr>
                             
-                        </div>
-                    </div>
-                    <?php }}else{?>
-                        <div class="" style="margin: 60px 0;" role="alert">
-                            <h2 class="text-center">Nenhum produto comprado</h2>
-                        </div>
-                    <?php } ?> 
-                </div>
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </section>
+    </div>
+
+
+
     
-    <footer style="margin-top: 130px;" class=" bg-dark pt-5">
+    
+
+
+
+    <footer class=" bg-dark pt-5">
         <div class="container">
             <div class="row">
                 <div id="contato" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-4 posicao">
@@ -158,6 +174,7 @@
                     </div>
                     
                 </div>
+                
             </div>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

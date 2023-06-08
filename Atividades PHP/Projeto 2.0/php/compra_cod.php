@@ -27,6 +27,7 @@
             header("location: ../produtos.php"); 
         }
         
+        $idUsuario = null;
         
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo $idUsuario = $_SESSION['id'];
@@ -49,42 +50,57 @@
                 $tamanho1 = $row['tamanho'];
                 $estilo_roupa = $row['estilo_roupa'];
                 $imagem = $row['name_imagem'];
-                $quantidade = $row['quantidade'];
                 $id_produto = $row['id'];
+
+                if(empty($row['quantidade'])){
+                    $quantidade = $row['quantidade'];
+                }else{
+                    header("location: ../produtos.php?erro=erroUsuarioQuantidade");
+                }
             }
 
             $total = $valor * $quantidadeProduto;
 
-            if($quantidade){
 
-                if($quantidade >= $quantidadeProduto){
+            if(!empty($_SESSION["adm"])){
+                header("location: ../produtos.php?erro=erroUsuarioAdm");
+            }
 
-                    $sql = "INSERT INTO Venda (usuario_id, produto_id, quantidade, total, tamanho,  data_venda) VALUES (:usuario_id, :produto_id, :quantidade, :total, :tamanhoProduto, NOW())";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->bindParam(":usuario_id", $idUsuario);
-                    $stmt->bindParam(":produto_id", $idProduto);
-                    $stmt->bindParam(":quantidade", $quantidadeProduto);
-                    $stmt->bindParam(":total", $total);
-                    $stmt->bindParam(":tamanhoProduto", $tamanhoProduto);
-                    $stmt->execute();
-                    $venda_id = $pdo->lastInsertId(); // Obter o ID da venda inserida
-                    
-
-                    $novo_estoque =  $quantidade - $quantidadeProduto;
-                    $sql = "UPDATE produto SET quantidade = :novo_estoque WHERE id = :produto_id";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->bindParam(":novo_estoque", $novo_estoque);
-                    $stmt->bindParam(":produto_id", $idProduto);
-                    $stmt->execute();
-
-                    echo "Venda registrada com sucesso. ID da venda: " . $venda_id . ", Número do Protocolo: ";
-                    header("location: ../pedidos.php");
-
-                }else {
-                    echo "Estoque insuficiente. Quantidade disponível: " . $quantidade;
-                }
+            if(empty($idUsuario)){
+                header("location: ../produtos.php?erro=erroUsuarioDeslogado");
+                echo 'Aqui';
             }else{
-                echo "Produto não encontrado.";
+                if($quantidade){
+    
+                    if($quantidade >= $quantidadeProduto){
+    
+                        $sql = "INSERT INTO Venda (usuario_id, produto_id, quantidade, total, tamanho,  data_venda) VALUES (:usuario_id, :produto_id, :quantidade, :total, :tamanhoProduto, NOW())";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(":usuario_id", $idUsuario);
+                        $stmt->bindParam(":produto_id", $idProduto);
+                        $stmt->bindParam(":quantidade", $quantidadeProduto);
+                        $stmt->bindParam(":total", $total);
+                        $stmt->bindParam(":tamanhoProduto", $tamanhoProduto);
+                        $stmt->execute();
+                        $venda_id = $pdo->lastInsertId(); // Obter o ID da venda inserida
+                        
+    
+                        $novo_estoque =  $quantidade - $quantidadeProduto;
+                        $sql = "UPDATE produto SET quantidade = :novo_estoque WHERE id = :produto_id";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(":novo_estoque", $novo_estoque);
+                        $stmt->bindParam(":produto_id", $idProduto);
+                        $stmt->execute();
+    
+                        echo "Venda registrada com sucesso. ID da venda: " . $venda_id . ", Número do Protocolo: ";
+                        header("location: ../pedidos.php");
+    
+                    }else {
+                        echo "Estoque insuficiente. Quantidade disponível: " . $quantidade;
+                    }
+                }else{
+                    echo "Produto não encontrado.";
+                }
             }
 
             // Fechar conexão

@@ -7,7 +7,7 @@
     <title>Produtos</title>
 
     <!-- Bootstrap link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Kit icones-->
     <script src="https://kit.fontawesome.com/8e383bc8aa.js" crossorigin="anonymous"></script>
@@ -27,32 +27,54 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
-            <a href="index.html" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
-            <button class="navbar-toggler ml-auto  ">
-                <span class="navbar-toggler-icon" data-toggle="collapse" data-target="#nav-principal"> 
-                </span>
-            </button>
-      
-      
-            <div class="collapse navbar-collapse" id="nav-principal"> <!-- Collapse; esconde os itens. Navbar-collapse; conecta deixando bonitinho -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-personalit fixed-top ">
+            <div class="container"> <!-- container; cria a grid-->
+                <a href="#" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                <button class="navbar-toggler ml-auto ">
+                    <span class="navbar-toggler-icon" data-toggle="collapse" data-target="#nav-principal"> 
+
+                    </span>
+                </button>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="nav-principal">
                 <ul class="navbar-nav ml-auto bordabotom">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html" aria-current="page">Home</a>
+                        <a class="nav-link" href="index.php" aria-current="page">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="produtos.html">Produtos</a>
+                        <a class="nav-link" href="produtos.php">Produtos</a>
                     </li>
-                </ul>
-            </div>      
+                    <?php
+                    session_start(); 
+                    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){?>
+                 
 
+                    <?php }else{?>
+                    <li class="nav-item dropdown ms-2 me-3">
+                        <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                        
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="conta.php">Conta</a></li>
+                            <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
+                            <li><a class="dropdown-item" href="meus_produtos.php">Meus produtos</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
+                        </ul>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            
+            
+        </nav>
     </header>
 
     <section class="m-top">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 roxo-sinza">
-                    <a href="logar.php"><h2 class="h22_style">login</h2></a><h2 class=" bb_style txt_cent">Cadastrar</h2>
+                    <a href="logar.php"><h2 class="h22_style mb-5">login</h2></a><h2 class=" bb_style txt_cent">Cadastrar</h2>
                     <form action="php/cadastrar_cod.php" method="post" class="">
                         <div class="sigle-inputs centrodiv">
                             <input required type="text" class="input" name="name" id='name' required /> <!-- Required obriga não estar vazio-->
@@ -102,7 +124,9 @@
             </div>
         </div>
     </section>
-
+    <?php
+    include('rodape.php');
+    ?>
 
 
 

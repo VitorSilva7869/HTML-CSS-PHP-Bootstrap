@@ -1,23 +1,5 @@
 
 
-/*____________Coisas necessarias___________*/
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Nunito', sans-serif;
-}
-
-html,body{
-    height: 100%;
-    overflow-x: hidden; /* Esconde a barra de rolagens*/
-}
-
-body{
-    background: #D9D9D9 url(../imagens/fundo2.png);
-    background-attachment:fixed;
-} 
-
-
 @media (max-width: 574.98px) {
     /* Navegação botao */
     .navbotao{
@@ -36,20 +18,36 @@ body{
     .mt-xs{
         margin-top: 10px;
     }
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 1px 4px;
+        font-size: 0.2rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
 
   }
   
 
  @media (min-width: 575px) {
     /* Navegação botao */
+    .navbotao{
+        margin-left: 30px;
 
+    }
     /*______Rodape______*/
     /* fontes tm*/
     .icon-lg{
         font-size: 3em;
 
     }
-
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 2px 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        border-radius: 0.3rem;
+    }
 }
 
 @media (min-width: 768px){
@@ -66,7 +64,14 @@ body{
         font-size: 2em;
 
     }
-    
+
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
 }
 
 @media (min-width: 992px){
@@ -84,14 +89,20 @@ body{
         font-size: 2.5em;
     }
 
-    
+    /*__________Semana designer_________*/
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 0.4rem 0.8rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: 0.3rem;
+    }
 }
 
 @media (min-width: 1200px) {
     /*______Rodape______*/
     /* fontes tm*/
     .tamanho-font-xl{
-        font-size: 17px;
+        font-size: 22px;
     }
 
     .tamanho-h4-xl{
@@ -100,10 +111,14 @@ body{
     .icon-xl{
         font-size: 3em;
     }
-    
 }
 
-/*_______________Rodape______________*/
+
+/*____________ROdape__________*/
+
+
+/* Rodape contatos*/
+
 footer li{
     list-style: none;
 }
@@ -132,44 +147,3 @@ footer li a{
 footer li a:hover{
     color: azure;
 }
-
-
-
-
-.bordar{
-    border-top-left-radius: 0 ;
-    border-bottom-left-radius: 0;
-}
-
-.bordal{
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-/*Tirar ceta menu*/
-
-.dropdown-toggle::after {
-    content: none;
-
-}
-
-/*paragrafo*/
-.mb-no{
-    margin-bottom: 0px;
-}
-
-/*Cor*/
-.bg-personalit{
-    background: #343a40;
-}
-
-
-.bg-style{
-    background: white;
-    border-radius: 5px;
-}
-
-.mt-10{
-    margin-top: 120px;
-}
-

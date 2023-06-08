@@ -66,6 +66,7 @@
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                             <li><a class="dropdown-item" href="conta.php">Conta</a></li>
                             <li><a class="dropdown-item" href="pedidos.php">Pedidos</a></li>
+                            <li><a class="dropdown-item" href="meus_produtos.php">Meus produtos</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="php/deslog_cod.php">Sair</a></li>
                         </ul>

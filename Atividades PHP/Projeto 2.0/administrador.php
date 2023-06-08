@@ -86,54 +86,52 @@
     </svg>
     
     <section class="m-top ">
+        <a href="logar.php" class=" text-secondary ms-5"><i class="fa-solid fa-arrow-left fa-xl"></i></a>
         <div class="container">
             <div class="row">
-                <div class="col-md-7 roxo-sinza">
-                    
-                    <?php
-                    if(isset($_GET['concluido']) && $_GET['concluido'] == 'concluidoMsg'){
-                    ?>
-                    <div class="alert alert-success d-flex align-items-center" style="width: 356px;" role="alert">
-                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                        <div>
-                            Cadastro efetuado com sucesso
-                        </div>
-                        </div>
-
-                    <?php } ?>
-                    <h2 class="bb_style txt_cent mb-5">login</h2><a href="cadastrar.php"><h2 class="h22_style">Cadastrar</h2></a>
-                    <form action="php/login_cod.php" method="post" class="">
-                        
-                        <div class="sigle-inputs centrodiv">
-                            <input required type="text" class="input"  name="email" id="email"/>
-                            <label for="Lembrar">Email</label>
-                        </div>
+                <div class="col-md-12 roxo-sinza">
+                    <div class="d-flex justify-content-center">
                         <?php
-                        if(isset($_GET['Erro']) && $_GET['Erro'] == 'errorEmail'){?>
-                            <p class=" mb-0 mt-0  text-danger" style="font-size: 14px; margin-right: 120px; margin-left: 4px;">Email invalidao</p>
+                        if(isset($_GET['concluido']) && $_GET['concluido'] == 'concluidoMsg'){
+                        ?>
+                        <div class="alert alert-success d-flex align-items-center" style="width: 356px;" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                            <div>
+                                Cadastro efetuado com sucesso
+                            </div>
+                        </div>
+    
                         <?php } ?>
-                        <div class="sigle-inputs centrodiv">
-                            <input required type="password" class="input" name="password" id='password2' required /> <!-- Required obriga não estar vazio-->
-                            <label for="Lembrar">Senha</label>
-                        </div>
-                        <?php
-                        if(isset($_GET['Erro']) && $_GET['Erro'] == 'errorPassword'){?>
-                            <p class=" mb-0 mt-0  text-danger" style="font-size: 14px; margin-right: 120px; margin-left: 4px;">Senha não é válida</p>
-                        <?php } ?>
-                        <div class="box centrodiv" >
-                            <input id="checkbox" type="checkbox">
-                            <label for="checkbox">Lembrar senha</label> <!-- Tem q ligar o "id" com o "For" nos imputs Box e Label-->
-                        </div>
-                        <div class="centrodiv">
-                            <a href=""><i class="fa-brands fa-google fa-2x google transicao_color"></i></a>
-                            <button type="submit" class="btn btn-outline-secondary transicao_color">Continuar</button>
-                        </div>
-                        <a href="administrador.php" class="txt-secodary">Entrar como administrador</a>
-                        
-                    </form>  
-                </div>
-                <div class="col-5  d-none d-md-block" >
-                    <img src="imagens/logo_real.png" class="img-fluid center" alt="">
+                        <form action="php/administrador_cod.php" method="post" class="">
+                            <h2 class="bb_style text-center mb-5">Administrador</h2>
+                            
+                            <div class="sigle-inputs centrodiv">
+                                <input required type="text" class="input"  name="email" id="email"/>
+                                <label for="Lembrar">Email</label>
+                            </div>
+                            <?php
+                            if(isset($_GET['Erro']) && $_GET['Erro'] == 'errorEmail'){?>
+                                <p class=" mb-0 mt-0  text-danger" style="font-size: 14px; margin-right: 120px; margin-left: 4px;">Email invalidao</p>
+                            <?php } ?>
+                            <div class="sigle-inputs centrodiv">
+                                <input required type="password" class="input" name="password" id='password2' required /> <!-- Required obriga não estar vazio-->
+                                <label for="Lembrar">Senha</label>
+                            </div>
+                            <?php
+                            if(isset($_GET['Erro']) && $_GET['Erro'] == 'errorPassword'){?>
+                                <p class=" mb-0 mt-0  text-danger" style="font-size: 14px; margin-right: 120px; margin-left: 4px;">Senha não é válida</p>
+                            <?php } ?>
+                            <div class="box centrodiv" >
+                                <input id="checkbox" type="checkbox">
+                                <label for="checkbox">Lembrar senha</label> <!-- Tem q ligar o "id" com o "For" nos imputs Box e Label-->
+                            </div>
+                            <div class="centrodiv">
+                                <a href=""><i class="fa-brands fa-google fa-2x google transicao_color"></i></a>
+                                <button type="submit" class="btn btn-outline-secondary transicao_color">Continuar</button>
+                            </div>
+                            
+                        </form>  
+                    </div>
                 </div>
             </div>
         </div>
