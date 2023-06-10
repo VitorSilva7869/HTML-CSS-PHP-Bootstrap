@@ -32,7 +32,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-personalit fixed-top ">
             <div class="container"> <!-- container; cria a grid-->
-                <a href="#" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                <a href="index.php" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
                 <button class="navbar-toggler ml-auto ">
                     <span class="navbar-toggler-icon" data-toggle="collapse" data-target="#nav-principal"> 
 
@@ -110,7 +110,7 @@
                         </div>
                         <?php
                         if(isset($_GET['Erro']) && $_GET['Erro'] == 'errorEmail'){?>
-                            <p class=" mb-0 mt-0  text-danger" style="font-size: 14px; margin-right: 120px; margin-left: 4px;">Email invalidao</p>
+                            <p class=" mb-0 mt-0  text-danger" style="font-size: 14px; margin-right: 120px; margin-left: 4px;">Email invalido</p>
                         <?php } ?>
                         <div class="sigle-inputs centrodiv">
                             <input required type="password" class="input" name="password" id='password2' required /> <!-- Required obriga não estar vazio-->

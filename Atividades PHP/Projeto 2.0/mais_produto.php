@@ -57,7 +57,7 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-dark bg-personalit fixed-top"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
                 <div class="container-fluid">
-                    <a href="index.html" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                    <a href="index.php" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-principal" aria-controls="nav-principal" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -106,7 +106,7 @@
         ?>
         <section id="produtos" class="mb-mx">
             <div class="container">
-                <h1 class="text-dark mb-3">Camisas</h1>
+                <h1 class="text-dark mb-3"><?php echo $pasta;?></h1>
                 <div class="row row-cols-1 row-cols-sm-4 g-4">
                     <?php
                         //$contador = 0;
@@ -139,7 +139,7 @@
                     
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <a href="#" class="btn btn-outline-dark ">Ver menos</a>
+                    <a href="produtos.php" class="btn btn-outline-dark ">Ver menos</a>
                 </div>
             </div>
         </section>

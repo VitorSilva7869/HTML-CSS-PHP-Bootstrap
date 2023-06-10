@@ -30,7 +30,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-personalit fixed-top ">
             <div class="container"> <!-- container; cria a grid-->
-                <a href="#" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                <a href="index.php" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
                 <button class="navbar-toggler ml-auto ">
                     <span class="navbar-toggler-icon" data-toggle="collapse" data-target="#nav-principal"> 
 
@@ -87,10 +87,10 @@
                         <h1 class="display-4">Roupas rústicas e casuais </h1>
                         <p>Mais de 1 milhão de vendas por semana, mostrando que nossos produtos é de qualidade com a maxima de sastifação. </p>
 
-                        <form action="" class="mt-4 mb-4">
+                        <form action="cadastrar.php" method="post" class="mt-4 mb-4">
                             <div class="input-group input-group-lg">
-                                <input type="text" placeholder="Seu Gmail" class="form-control">
-                                    <button type="button" class="btn btn-primary ">Cadastre-se</button>
+                                <input type="text" placeholder="Seu Gmail" name="gmailIndex" class="form-control">
+                                    <button type="submit" class="btn btn-primary ">Cadastre-se</button>
                             </div>
                         </form>
 

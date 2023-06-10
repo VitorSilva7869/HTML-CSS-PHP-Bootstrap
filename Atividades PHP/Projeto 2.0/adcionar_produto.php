@@ -29,7 +29,7 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-personalit fixed-top"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
             <div class="container-fluid">
-                <a href="index.html" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                <a href="index.php" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-principal" aria-controls="nav-principal" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -65,34 +65,42 @@
         <section class=" mt-10 " style="margin-bottom: 110px;">
             <h1 class=" fw-bold text-center" >Adcionar produtos</h1>
             <div class="bg-style container">
-                <form action="php/adcionar_prod_cod.php" method="post" enctype="multipart/form-data">
+                <form action="php/adcionar_prod_cod.php" class="was-validated" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-4 mt-3 mb-3">
                             <!--<img src="imagens/Casaco/Casaco.png" class="img-fluid" alt="">-->
                             <div class="">
                                 <label for="img_prod" class="form-label">Escolha uma imagem</label>
-                                <input class="form-control" type="file" name="img_prod" id="img_prod" accept="image/png, image/jpeg" >
+                                <input class="form-control" type="file" name="img_prod" id="img_prod" accept="image/png, image/jpeg" required>
+                                <div class="invalid-feedback">Imagem não selecionada</div>
                             </div>
                             <label for="select_roupa" class="form-label fw-bold mt-2">Tipo da Roupa</label>
-                            <select class="form-select ms-2" name="select_roupa" id="select_roupa" aria-label="Default select example">
+                            <select class="form-select ms-2" name="select_roupa" id="select_roupa" required aria-label="Default select example">
+                                <option value="">Escolha uma opção</option>
                                 <option value="camisa">Camisa</option>
                                 <option value="calca">Calça</option>
                                 <option value="moleton">Moleton</option>
-                                <option value="short">Short</option>
                             </select>
                         </div>
                         <div class="col-md-4 mt-3 mb-3 ">
                             
                             <div class="mb-3">
                                 <label for="titulo" class="form-label fw-bold">Titulo</label>
-                                <input type="text" class="form-control ms-2" id="titulo" name="titulo" placeholder="Exemplo: Camisa Cinza" aria-describedby="emailHelp">
+                                <input type="text" required class="form-control ms-2" id="titulo" name="titulo" placeholder="Exemplo: Camisa Cinza" aria-describedby="emailHelp">
+                                <div class="invalid-feedback ms-2">
+                                    Por favor adicione um titulo para o produto.
+                                </div>
                                 
                                 <label for="descricao" class="form-label fw-bold mt-2">Descrição</label>
-                                <textarea class="form-control ms-2 " id="descricao" name="descricao" rows="3" placeholder="Exemplo: camisa se otima qualidade e confiança..." aria-describedby="emailHelp"></textarea>
+                                <textarea class="form-control ms-2 " id="descricao" name="descricao" required rows="3" placeholder="Exemplo: camisa se otima qualidade e confiança..." aria-describedby="emailHelp"></textarea>
+                                <div class="invalid-feedback ms-2">
+                                    Por favor adicione uma descrição para o produto.
+                                </div>
                                 
                             </div>
                             <label for="select" class="form-label fw-bold">Genero</label>
-                            <select class="form-select ms-2" name="genero" aria-label="Default select example">
+                            <select class="form-select ms-2" required name="genero" aria-label="Default select example">
+                                <option value="">Escolher uma opção</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Feminino">Feminino</option>
                                 <option value="Unissex">Unissex</option>
@@ -106,7 +114,7 @@
                             <div class="d-flex">
                                 <div class="ms-2">
                                     <label for="gg">GG</label><br>
-                                    <input class="form-check-input mt-0 ms-1" type="checkbox" value="gg" name="tamanho[]" id="gg">
+                                    <input class="form-check-input mt-0 ms-1"  type="checkbox" value="gg" name="tamanho[]" id="gg">
                                 </div>
                                 <div class="ms-2">
                                     <label for="g" class="ms-1">G</label><br>
@@ -128,15 +136,15 @@
                             
                             
                             <label for="titulo" class="form-label fw-bold">Preço</label>
-                            <div class="input-group flex-nowrap">
+                            <div class=" d-flex">
                                 <label class="ms-2 align-self-center text-secondary" for="valor">R$ </label>
-                                <input type="number" step="0.01" min="0.01" class="form-control ms-2 me-3" name="valor" id="valor" placeholder="Preço do produto" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="number" step="0.01" min="0.01" class="form-control ms-2 me-3" name="valor" id="valor" required placeholder="Preço do produto" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
         
                             <h6 class="text-center mt-3 fw-bold">Quantidade</h6>
                             <div class="btn-group d-flex justify-content-start" role="group" aria-label="Basic outlined example">
                                 <button type="button" id="mais" class="btn btn-outline-secondary ms-5" >+</button>
-                                <input type="number" class="" style="width: 60px;" id="quantidade" name="quantidade" value="" class="">
+                                <input type="number" required class="" style="width: 60px;" id="quantidade" name="quantidade" value="" class="">
                                 <button type="button" id="menos" class="btn btn-outline-secondary me-5">-</button>       
                             </div>
                             

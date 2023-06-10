@@ -32,7 +32,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-personalit fixed-top ">
             <div class="container"> <!-- container; cria a grid-->
-                <a href="#" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                <a href="index.php" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
                 <button class="navbar-toggler ml-auto ">
                     <span class="navbar-toggler-icon" data-toggle="collapse" data-target="#nav-principal"> 
 

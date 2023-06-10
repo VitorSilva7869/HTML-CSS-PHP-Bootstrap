@@ -23,6 +23,11 @@
     }else{
         header("location: produtos.php"); 
     }*/
+    if(isset($_GET['estilo'])){
+        $estilo = $_GET['estilo'];
+    }else{
+        header("location:produtos.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +62,7 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-dark bg-personalit fixed-top"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
                 <div class="container-fluid">
-                    <a href="index.html" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                    <a href="index.php" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-principal" aria-controls="nav-principal" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -71,7 +76,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link active me-3" href="produtos.php">Produtos</a>
                                 </li>
-                                <form action="pesquisa_tudo.php" method="post" class="d-flex icon-mgl me-3"> <!--- form-inline deixa os elementos na msma linha-->
+                                <form action="pesquisa_especifico.php?estilo=<?php echo $estilo;?>" method="post" class="d-flex icon-mgl me-3"> <!--- form-inline deixa os elementos na msma linha-->
                                     <input type="text" class="form-control bordal" value="<?php echo $pesquisa; ?>" name="pesquisa" placeholder="pesquisar..."> <!-- Form-control formata o input para um estilo-->
                                     <button type="submit" class="btn btn-outline-light bordar"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
@@ -98,15 +103,11 @@
         //Botar em maiusculo para procurar pasta imagem
         
         //$id = $_SESSION['id'];
-        if(isset($_GET['estilo'])){
-            $estilo = $_GET['estilo'];
-        }else{
-            header("location:produtos.php");
-        }
+
 
         $pesquisa = $_POST['pesquisa'];
-        $stmt = $pdo->prepare("SELECT * FROM produto WHERE LEFT(titulo, 1) = :pesquisa AND estilo_roupa = :estiloRoupa");
-        $stmt->bindParam(':pesquisa', $pesquisa);
+        $stmt = $pdo->prepare("SELECT * FROM produto WHERE titulo LIKE :pesquisa AND estilo_roupa = :estiloRoupa");
+        $stmt->bindValue(':pesquisa', '%'.$pesquisa.'%');
         $stmt->bindParam(':estiloRoupa', $estilo);
 
 

@@ -28,12 +28,19 @@
         }
         
         $idUsuario = null;
+        $tamanhoProduto = null;
         
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo $idUsuario = $_SESSION['id'];
             echo $idProduto = $_GET['idProduto'];
             echo $quantidadeProduto = $_POST['quantidade'];
             echo $tamanhoProduto = $_POST['tamanho'];
+
+            if(empty($tamanhoProduto) && $quantidade == null){
+                echo 'Foi';
+            }else{
+                header("location: ../produtos.php?erro=erroUsuarioQuantidade");
+            }
 
             //Buscar as informaçoes do produto
             $stmt = $pdo->prepare("SELECT * FROM produto WHERE id = :id");
@@ -51,12 +58,7 @@
                 $estilo_roupa = $row['estilo_roupa'];
                 $imagem = $row['name_imagem'];
                 $id_produto = $row['id'];
-
-                if(empty($row['quantidade'])){
-                    $quantidade = $row['quantidade'];
-                }else{
-                    header("location: ../produtos.php?erro=erroUsuarioQuantidade");
-                }
+                $quantidade = $row['quantidade'];
             }
 
             $total = $valor * $quantidadeProduto;

@@ -52,10 +52,10 @@
                     <div class="ms-auto"  > <!-- Collapse; esconde os itens. Navbar-collapse; conecta deixando bonitinho -->
                         <ul class="navbar-nav me-2 bordabotom">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php" aria-current="page">Home</a>
+                                <a class="nav-link" href="../index.php" aria-current="page">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link me-3" href="produtos.php">Produtos</a>
+                                <a class="nav-link me-3" href="../produtos.php">Produtos</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="nav-botão" class=" btn btn-outline-light navbotao transicao_color dropdown-toggle" href="#" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
@@ -68,7 +68,7 @@
                                     <li><a class="dropdown-item disabled" href="informaçoesUsuarios.php">Infromaçoes Usuario</a></li>
                                     <?php } ?>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="../deslog_cod.php">Sair</a></li>
+                                    <li><a class="dropdown-item" href="deslog_cod.php">Sair</a></li>
                                 </ul>
                             </li>
                             

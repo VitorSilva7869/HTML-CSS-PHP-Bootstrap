@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    
+if(isset($_POST['gmailIndex'])){
+    $gmailIndex = $_POST['gmailIndex'];
+}else{
+        $gmailIndex = '';
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +39,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-personalit fixed-top ">
             <div class="container"> <!-- container; cria a grid-->
-                <a href="#" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                <a href="index.php" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
                 <button class="navbar-toggler ml-auto ">
                     <span class="navbar-toggler-icon" data-toggle="collapse" data-target="#nav-principal"> 
 
@@ -46,7 +56,7 @@
                         <a class="nav-link" href="produtos.php">Produtos</a>
                     </li>
                     <?php
-                    session_start(); 
+                     
                     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){?>
                  
 
@@ -87,7 +97,7 @@
                         <?php } ?>
 
                         <div class="sigle-inputs centrodiv">
-                            <input required type="text" class="input"  name="gmail" id="email" required/>
+                            <input required type="text" class="input"  name="gmail" id="email" required value="<?php echo $gmailIndex; ?>"/>
                             <label for="Lembrar">Email</label>
                         </div>
                         

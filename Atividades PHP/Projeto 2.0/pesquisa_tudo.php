@@ -57,7 +57,7 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-dark bg-personalit fixed-top"> <!-- Navbar; cria uma navegação barra. navbar-expand-md; deixa responsivel -->
                 <div class="container-fluid">
-                    <a href="index.html" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
+                    <a href="index.php" class="navbar-brand"><img src="imagens/Vitinho.png" alt="" width="110"></a> <!-- Cria um pading alinhado-->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-principal" aria-controls="nav-principal" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -99,8 +99,8 @@
         
         //$id = $_SESSION['id'];
         $pesquisa = $_POST['pesquisa'];
-        $stmt = $pdo->prepare("SELECT * FROM produto WHERE LEFT(titulo, 1) = :pesquisa");
-        $stmt->bindParam(':pesquisa', $pesquisa);
+        $stmt = $pdo->prepare("SELECT * FROM produto WHERE titulo LIKE :pesquisa");
+        $stmt->bindValue(':pesquisa', '%' .$pesquisa. '%' );
 
         $stmt->execute();
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
