@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', serif;
+}
+
+html,body{
+    height: 100%;
+    overflow-x: hidden; /* Esconde a barra de rolagens*/
+}
+
+//font
+@mixin fontMontserrat(){
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+h1{
+    @include fontMontserrat;
+}
+
+//Variavel
+$cor1 : #055906;
+$cor2 : #6ba103;
+
+//alinhamento item
+@mixin flexItem($item){
+    display: flex;
+    align-items: $item;
+}
+
+/*Navegação*/
+.nav{
+
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(220, 255, 220);
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        @include flexItem(center);
+    }
+    li{
+        float: left;
+    }
+    .nav-link a{
+        display: block;
+        padding: 0 0.5em;
+        line-height: 2em;
+        font-size: 20px;
+        text-decoration: none;
+        color: $cor2;
+        @include fontMontserrat();
+        @extend %fancy-link;
+    }
+}
+
+%fancy-link { //Efeito 
+    position: relative;
+    text-decoration: none;
+    transition: all 0.15s ease-out;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0px;
+      left: 0;
+      background: $cor1;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+    &:hover {
+        color: $cor1;
+      transition: all 0.15s ease-out;
+      &:before {
+          visibility: visible;
+          transform: scaleX(1);
+      }
+    }
+  }
+
+.icone{
+    width: 120px;
+    @include flexItem(center);
+
+    a{
+        color: $cor2;
+        margin: 0 15px;
+        padding: 5px;
+        border-radius: 100%;
+        transition: 0.5s;
+    }
+    a:hover{
+        color: white;
+        background: $cor1;
+        border-radius: 100%;
+        padding: 11px;
+
+    }
+}
+
+.hamburgue{
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    /*Nav*/
+    .sumir, .sumir li{
+        display: none;
+    }
+
+    .hamburgue{
+        display: block;
+        border: none;
+        background: none;
+        color: #055906;
+        margin: 7px 15px 7px 0px;
+    }
+    
+
+}
+#sumir{
+    display: none;
+
+}
