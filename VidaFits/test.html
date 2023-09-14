@@ -1,174 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidaFits</title>
-    <!--Estilo-->
-    <link rel="stylesheet" href="css/test.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/test2.css">
 
     <!--Fonte google-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@500&display=swap"
+        rel="stylesheet">
 
     <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
     <!--Kit icones-->
     <script src="https://kit.fontawesome.com/8e383bc8aa.js" crossorigin="anonymous"></script>
-    
 
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md mx-sm-5">
-            <div class="container-fluid">
-                <button id="botaoHam" class="navbar-toggler hamburguer" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars fa-xl "></i>
-                </button>
-                <div class="sumir div1">
-                    <a class="" href="#">
-                        <img class="" src="imagens/VIDAFIT-removebg-preview.png" alt="" width="120" height="" class="d-inline-block align-text-top">
-                    </a>
-                </div>
-                
-                <div class="collapse navbar-collapse justify-content-center div2" id="navbarText">
-                    
-                    <ul class="nav-link">
-                        <li class=""><a  href="#">Home</a></li>
-                        <li class=""><a  href="#">Meditar</a></li>
-                        <li class=""><a  href="#">Musculação</a></li>
-                    </ul>
-                </div>
-                
-                <div class="icone div3">
-                    <a href="">
-                        <i class="fa-solid fa-magnifying-glass fa-xl "></i>
-                    </a>
-                    <a href="">
-                        <i class="fa-regular fa-user fa-xl"></i>
-                    </a>
-                </div>
+    <div class="container">
+
+        <div class="calendar-base">
+
+            <div class="year">2017</div>
+            <!-- year -->
+
+            <div class="triangle-left"></div>
+            <!--triangle -->
+            <div class="triangle-right"></div>
+            <!--  triangle -->
+
+            <div class="months">
+                <span class="month-hover">Jan</span>
+                <span class="month-hover">Feb</span>
+                <span class="month-hover">Mar</span>
+                <strong class="month-color">Apr</strong>
+                <span class="month-hover">May</span>
+                <span class="month-hover">Jun</span>
+                <span class="month-hover">July</span>
+                <span class="month-hover">Aug</span>
+                <span class="month-hover">Sep</span>
+                <span class="month-hover">Oct</span>
+                <span class="month-hover">Nov</span>
+                <span class="month-hover">Dec</span>
+            </div><!-- months -->
+            <hr class="month-line" />
+
+            <div class="days">SUN MON TUE WED THU FRI SAT</div>
+            <!-- days -->
+
+            <div class="num-dates">
+
+                <div class="first-week"><span class="grey">26 27 28 29 30 31</span> 01</div>
+                <!-- first week -->
+                <div class="second-week">02 03 04 05 06 07 08</div>
+                <!-- week -->
+                <div class="third-week"> 09 10 11 12 13 14 15</div>
+                <!-- week -->
+                <div class="fourth-week"> 16 17 18 19 20 21 22</div>
+                <!-- week -->
+                <div class="fifth-week"> 23 24 25 26 <strong class="white">27</strong> 28 29</div>
+                <!-- week -->
+                <div class="sixth-week"> 30 <span class="grey">01 02 03 04 05 06</span></div>
+                <!-- week -->
             </div>
-        </nav>
-    </header>
-    
-    <section class="container mt-5">
-        <div class="row d-flex align-items-center mb-5">
-            <div class="col-md-6 coluna1-1 text-center text-md-start">
-                <h1>Encontre paz interior e equilíbrio com a meditação. Descubra um caminho de bem-estar no <span>VidaFits</span></h1>
-            </div>
-            <div class="col-6 d-md-block d-none btn-home">
-                <img src="imagens/meditação.png" alt="Menina meditando" class="img-fluid" style="width: 400px;">
-                <a href="" class="">Começar <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
+            <!-- num-dates -->
+            <div class="event-indicator"></div>
+            <!-- event-indicator -->
+            <div class="active-day"></div>
+            <!-- active-day -->
+            <div class="event-indicator two"></div>
+            <!-- event-indicator -->
+
         </div>
-        <div class="row d-flex align-items-center propiedade margin-t aparecer">
-            <div class="col-12 col-sm-6  col-md-6 text-center text-md-start">
-                <img src="imagens/meditação4.png" alt="Menina meditando" class="img-fluid" style="width: 400px;">
+        <!-- calendar-base -->
+        <div class="calendar-left">
+
+            <div class="hamburger">
+                <div class="burger-line"></div>
+                <!-- burger-line -->
+                <div class="burger-line"></div>
+                <!-- burger-line -->
+                <div class="burger-line"></div>
+                <!-- burger-line -->
             </div>
-            <div class="col-12 col-sm-6 col-md-6 text-center text-sm-start">
-                <h2>Descubra o poder da meditação</h2>
-                <h4>Além de ajudar a acalmar a mente, a prática regular da meditação melhora a concentração e a capacidade de tomar decisões. Aumente sua produtividade e encontre clareza mental através dessa poderosa técnica.</h4>
-            </div>
-        </div>
-        <div class="row d-flex align-items-center propiedade aparecer">
-            <div class="col-12 col-sm-12 col-md-6 text-center text-md-start">
-                <h2>O segredo da felicidade está na meditação</h2>
-                <h4>Estudos mostram que a meditação reduz o estresse e a ansiedade, promovendo uma sensação de bem-estar e felicidade. Experimente essa prática simples e transformadora e descubra como ela pode melhorar sua qualidade de vida</h4>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6">
-                <img src="imagens/feliz.png" alt="Menina meditando" class="img-fluid" >
-            </div>
-        </div>
-        <div class="row d-flex align-items-center propiedade aparecer">
-            <div class="col-12 col-sm-12 col-md-6">
-                <img src="imagens/correr.png" alt="Menina meditando" class="img-fluid">
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 text-center text-md-start">
-                <h2>Dê um 'pause' na vida agitada</h2>
-                <h4>A meditação é um momento em que você pode se desconectar do mundo exterior e se reconectar consigo mesmo. Encontre paz interior, reduza o estresse do dia a dia e encontre equilíbrio emocional com essa prática calmante e revitalizante.</h4>
-            </div>
-        </div>
-        <div class="btn-final">
-            <a href="" class="">Avançar <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-    </section>
+            <!-- hamburger -->
 
 
-    <footer class="pt-5 estilo-footer">
-        <div class="container">
-            <img src="imagens/LogoWhite.png" alt="logo VidaFits" width="130" height="">
-            <div class="row mt-2 pb-5 border-bottom border-light">
-                <div id="contato" class="col-xl-4 col-lg-4 col-md-4 col-sm-7 col-xs-5 posicao">
-                    <p class="ps-1 mt-1">Em um mundo agitado, a VidaFits é o seu refúgio de calma e serenidade.</p>
-                </div>
-                <div class="col-xl-5 col-lg-4 d-none col-md-4 d-md-block text-lg-center text-md-center">
-               
-                    <p>Receba informações sobre eventos e promoçoes da VidaFits</p>
-                    <form action="">
-                        <div class="input-group mb-3 ">
-                            <input type="gmail" class="form-control" placeholder="Username@gmail.com" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-light" type="submit" id="button-addon2">Envar</button>
-                        </div>
-                    </form>
-                    
-                </div>
-                <div class="col-xl-1 d-md-none d-xl-block d-sm-block  col-sm-4 col-xs-6 ">
-                    <p>Folow US</p>
-                    <div class="float-sm-right posicao mt-xs ">
-                        <a href=""><i class="fa-brands fa-facebook icone-style text-white"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram icone-style ml-4 text-white"></i></a>
-                        <a href=""><i class="fa-brands fa-twitter icone-style ml-4 text-white mb-3"></i></a>
-                    </div>
-                    
-                </div>
-                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-5 col-xs-7 d-md-block">
-                    <div class="float-sm-right posicao mt-xs text-lg-center text-md-center">
-                        <p>Telefone</p>
-                        <p class="fw-bold">(71)9 9136-6331</p>
-                        
-                    </div>
-                </div>
+            <div class="num-date">27</div>
+            <!--num-date -->
+            <div class="day">THURSDAY</div>
+            <!--day -->
+            <div class="current-events">Current Events
+                <br />
+                <ul>
+                    <li>Day 09 Daily CSS Image</li>
+                </ul>
+                <span class="posts">See post events</span>
             </div>
-            <div class="row mt-3">
-                <div class="col-6 text-center">
-                    <p>
-                        &copy; Copyright 2023 VidaFits 
-                    </p>
-                </div>
+            <!--current-events -->
 
-                <div class="col-6 text-center">
-                    <p>
-                        PRIVACY POLICY TERMS ADN CONDITIONS
-                    </p>
+            <div class="create-event">Create an Event</div>
+            <!-- create-event -->
+            <hr class="event-line" />
+            <div class="add-event"><span class="add">+</span></div>
+            <!-- add-event -->
+
+        </div>
+        <!-- calendar-left -->
+
+    </div>
+    <!-- container -->
+
+
+
+
+    <div class="container">
+        <div class="row ">
+            <div class="col-4 coluna-1">
+                <h1 class="text-center mb-3 mt-5">14</h1>
+                <h2 class="text-center mb-5">QUINTA-FEIRA</h2>
+                <h5 class="ms-1">Total de meditação</h5>
+                <p class="ms-3">20X</p>
+                <div class="d-flex justify-content-between">
+                    <h5 class="ms-1">Criar lembrete</h5>
+                    <button><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="mt-3 mb-5 borda px-5">
+
                 </div>
             </div>
+            <div class="col-8 coluna-2">
+                <h3 class="text-center mt-2">Dias Meditados</h3>
+                <div class=" text-center borda-b">
+                    <span class="">Jan</span>
+                    <span class="">Feb</span>
+                    <span class="">Mar</span>
+                    <span class="">Abr</span>
+                    <span class="">May</span>
+                    <span class="">Jun</span>
+                    <span class="">July</span>
+                    <span class="">Aug</span>
+                    <strong class="">Set</strong>
+                    <span class="">Oct</span>
+                    <span class="">Nov</span>
+                    <span class="">Dec</span>
+                    <div class="mb-3"></div>
+                </div><!-- months -->
+                <div class="d-flex justify-content-center align-content-center tableStyle">
+                    <table class="text-center">
+                        <tr class="fw-bold">
+                          <th class="">Dom</th>
+                          <th>Seg</th>
+                          <th>Ter</th>
+                          <th>Qua</th>
+                          <th>Qui</th>
+                          <th>Sex</th>
+                          <th>Sab</th>
+                        </tr>
+                        <tr>
+                          <td class="off-text">27</td>
+                          <td class="off-text">28</td>
+                          <td class="off-text">29</td>
+                          <td class="off-text">30</td>
+                          <td class="off-text" class="off-text">31</td>
+                          <td>01</td>
+                          <td>02</td>
+                        </tr>
+                        <tr>
+                          <td>03</td>
+                          <td>04</td>
+                          <td>05</td>
+                          <td>06</td>
+                          <td>07</td>
+                          <td>08</td>
+                          <td>09</td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>11</td>
+                          <td>12</td>
+                          <td>13</td>
+                          <td class="active-dayy">14</td>
+                          <td>15</td>
+                          <td>16</td>
+                        </tr>
+                        <tr>
+                          <td>17</td>
+                          <td>18</td>
+                          <td>19</td>
+                          <td>20</td>
+                          <td>21</td>
+                          <td>22</td>
+                          <td>23</td>
+                        </tr>
+                        <tr>
+                          <td>24</td>
+                          <td>25</td>
+                          <td>26</td>
+                          <td>27</td>
+                          <td>28</td>
+                          <td>29</td>
+                          <td>30</td>
+                        </tr>
+                        <tr>
+                          <td class="off-text">01</td>
+                          <td class="off-text">02</td>
+                          <td class="off-text">03</td>
+                          <td class="off-text">04</td>
+                          <td class="off-text">05</td>
+                          <td class="off-text">06</td>
+                          <td class="off-text">07</td>
+                        </tr>
+                    </table>                  
+                </div>
+            </div>
+
         </div>
-      
-    </footer>
+    </div>
 </body>
-<script>
-   
-    const observer = new IntersectionObserver(entries =>{
-    console.log(entries)
 
-    Array.from(entries).forEach(entry =>{
-        if (entry.intersectionRatio >= 1){
-            entry.target.classList.add('apareceroff'); // Remova o ponto antes de 'apareceroff'
-        }
-    })
-   },{
-    threshold: [0, .5, 1]
-   }) 
-
-   Array.from(document.querySelectorAll('.aparecer')).forEach(element => {
-
-       observer.observe(element)
-   })
-
-</script>
 </html>

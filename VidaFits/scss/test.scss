@@ -27,6 +27,15 @@ $fontSize-xs : 15px;
 $fontSize-sm : 19px;
 $fontSize-md : 18px;
 
+$fontSize-xs-h: 15px;
+$fontSize-sm-h: 17px;
+$fontSize-md-h: 20px;
+$fontSize-lg-h: 24px;
+
+$fontSize-sm-p: 14px;
+$fontSize-md-footer-p: 17px;
+$fontSize-lg-footer-p: 18px;
+
 //alinhamento item
 @mixin flexItem($item){
     display: flex;
@@ -135,12 +144,6 @@ $fontSize-md : 18px;
 }
 .div3{
     order: 3;
-}
-
-@media (max-width: 775px) {
-    
-    
-
 }
 
 #sumir{
@@ -259,15 +262,10 @@ $fontSize-md : 18px;
         color: $cor2;
     }
 }
-$fontSize-xs-h: 15px;
-$fontSize-sm-h: 17px;
-$fontSize-md-h: 20px;
-$fontSize-lg-h: 24px;
+
 
 /*footer*/
-$fontSize-sm-p: 14px;
-$fontSize-md-footer-p: 17px;
-$fontSize-lg-footer-p: 18px;
+
 
 .estilo-footer{
     margin-top: 150px;

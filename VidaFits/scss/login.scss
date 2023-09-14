@@ -1,0 +1,453 @@
+.step-2{
+    display: none;
+}
+
+/*Principal*/
+body{
+    background: white url(../imagens/fundo2.png);
+    background-position: center top;
+
+    /* Configura o tamanho da imagem de fundo (opcional) */
+    background-size: cover;
+}
+
+html,body{
+    height: 100%;
+    overflow-x: hidden; /* Esconde a barra de rolagens*/
+}
+
+//font
+@mixin fontMontserrat(){
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+//Variavel
+$cor1 : #055906;
+$cor2 : #6ba103;
+
+$fontSize-xs : 15px;
+$fontSize-sm : 19px;
+$fontSize-md : 18px;
+
+$fontSize-xs-h: 15px;
+$fontSize-sm-h: 17px;
+$fontSize-md-h: 20px;
+$fontSize-lg-h: 24px;
+
+$fontSize-sm-p: 14px;
+$fontSize-md-footer-p: 17px;
+$fontSize-lg-footer-p: 18px;
+
+//alinhamento item
+@mixin flexItem($item){
+    display: flex;
+    align-items: $item;
+}
+
+/*Navegação*/
+
+.nav-link{
+    margin-bottom: 0;
+    padding: 0;
+    @include flexItem(center);
+    li{
+        float: left;
+        list-style: none;
+    }
+
+   a{
+        display: block;
+        padding: 0 0.5em;
+        line-height: 2em;
+        font-size: 20px;
+        text-decoration: none;
+        color: $cor2;
+        @include fontMontserrat();
+        @extend %fancy-link;
+   }
+}
+
+    
+
+%fancy-link { //Efeito 
+    position: relative;
+    text-decoration: none;
+    transition: all 0.15s ease-out;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0px;
+      left: 0;
+      background: $cor1;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+    &:hover {
+        color: $cor1;
+      transition: all 0.15s ease-out;
+      &:before {
+          visibility: visible;
+          transform: scaleX(1);
+      }
+    }
+  }
+
+.icone{
+    width: 120px;
+    @include flexItem(center);
+
+    a{
+        color: $cor2;
+        margin: 0 15px;
+        padding: 5px;
+        border-radius: 100%;
+        transition: 0.5s;
+    }
+    a:hover{
+        color: white;
+        background: $cor1;
+        border-radius: 100%;
+        padding: 11px;
+
+    }
+}
+.hamburguer{
+    i{
+        color: $cor1;
+    }
+    transition: transform 1s  ease;
+}
+.hamburguer.rotated{
+    transform: rotate(360deg);
+}
+
+#myButton {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+  }
+  
+  #myButton.rotated {
+    transform: rotate(360deg);
+  }
+  
+
+.div1{
+    order: 1;
+}
+.div2{
+    order: 2;
+}
+.div3{
+    order: 3;
+}
+
+@media (max-width: 775px) {
+    
+    
+
+}
+
+#sumir{
+    @include flexItem(center);
+    
+
+}
+
+.navbar{
+    border-bottom: 1px solid #e4f6c3;
+}
+
+/*------------Login-----------*/
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+
+}
+.login-especifico{
+    background:  linear-gradient(to bottom, $cor1, $cor2);
+    border-radius: 20px;
+
+    h3{
+        color: white;
+        @include fontMontserrat();
+    }
+    label{
+        @include fontMontserrat();
+
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        @include fontMontserrat(); 
+
+        &:hover{
+            color: rgb(224, 222, 222);
+        }
+    }
+}
+
+
+/*email e senha*/
+@mixin coresInputStyle($labelCor, $inputCor,$inputBordaCor,$inputBordaDpsCor,$inputaDpsCor){
+    & label{
+        font-size: 16px;
+        left: 0; 
+        position: absolute;
+        color: $labelCor;//-------
+        bottom: 8px;
+        cursor: text; 
+        transition: 0.5s ease-in-out; 
+    }
+
+    & .input {
+        width: 100%;
+        padding: 3px;
+        background: transparent;
+        color: $inputCor;//--------
+        border: 0;
+        border-bottom: 2px solid $inputBordaCor;//-------
+        outline: 0;
+    }
+    & .input:focus, 
+    & .input:valid{ 
+        border-bottom: 2px solid $inputBordaDpsCor;//-----------
+    }
+    & .input:focus ~ label,
+    & .input:valid ~ label{
+        transform: translateY(-24px);
+        font-size: 12px;
+        color: $inputaDpsCor;//------------------
+    }
+}
+div.sigle-inputs{
+    width: 300px;
+    margin-top: 30px;
+    margin-left: 5px;
+    position: relative; /* position: relative;altera a posição do elemento em relação ao elemento
+    pai e em relação a si mesmo e onde normalmente estaria no fluxo de documento regular da página.  */
+    
+    @include coresInputStyle(white ,white , white,white , white)
+}
+
+
+
+
+
+/*Check box*/
+
+.box{
+    width: 150px;
+    margin-left: 5px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: white;
+}   
+
+.box input{
+    display: none;
+}
+
+.box input + label::before{
+    content: ''; /* para gerar conteúdo em um elemento */
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid gray;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+}
+
+.box input:checked + label:before {
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: center;
+    border: none;
+    background-color: blue;
+    padding: 1px;
+}
+
+//btn
+.btn-style{
+    color: white;
+    background: none;
+    border-radius: 30px;
+    border: 1px solid white;
+
+    padding: 8px 3px;
+
+    position: relative;
+
+    .seta{
+        position: absolute;
+        left: 110px;
+        bottom: 10px;
+        transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;;
+        opacity: 0;
+    }
+
+    &:hover{
+        background: white;
+        color: $cor2;
+
+        .seta {
+            opacity: 1;
+            left: 125px; // Mova a seta para a direita
+        }
+    }
+    &:not(:hover) { // Quando não estiver em hover
+        .seta {
+            left: 110px; // Volte a seta para fora da área visível
+            opacity: 0; // Torne a seta invisível novamente
+        }
+    }
+}
+
+
+
+/*-----------msg-----------*/
+.danger{
+    margin-left: 6px;
+    color: rgb(91, 0, 0);
+    font-weight: bold;
+}
+
+/*-----------Media--------------*/
+
+@media (max-width: 460px) {
+    /*Nav*/
+    .sumir a{
+        display: none;
+    }
+    .icone{
+        i{
+            font-size: $fontSize-sm-p;
+        }
+        a:hover{
+            color: white;
+            background: $cor1;
+            border-radius: 100%;
+            padding: 5px 8px;
+        }
+    }
+    .nav-link a{
+        font-size: $fontSize-xs;
+    }
+    /*Estilo footer*/
+    .estilo-footer{
+        p{
+            font-size: $fontSize-sm;
+        }
+    }
+    /*login*/
+    body{
+        background: white;
+    }
+
+    .login-especifico{
+        background: none;
+        p{
+            color: $cor2;
+        }
+        h3{
+            color: $cor2;
+        }
+        a{
+            color: $cor2;
+        }
+
+    }
+
+    div.sigle-inputs{
+        width: 300px;
+        margin-top: 30px;
+        margin-left: 5px;
+        position: relative; /* position: relative;altera a posição do elemento em relação ao elemento
+        pai e em relação a si mesmo e onde normalmente estaria no fluxo de documento regular da página.  */
+        
+        @include coresInputStyle($cor2,$cor2 ,$cor2 ,$cor2 , $cor2)
+    }
+
+    .box{
+        color: $cor2;
+    }
+
+    //btn
+    .btn-style{
+        background: $cor2;
+        &:hover{
+            background: $cor1;
+            color: white;
+        }
+    }
+    
+
+
+}
+
+@media (max-width: 575.98px){/*xs*/
+    /*Nav*/
+    .div1{
+        order: 1;
+    }
+    .div2{
+        order: 3;
+    }
+    .div3{
+        order: 2;
+    }
+    /*footer*/
+    .estilo-footer{
+        p{
+            font-size: $fontSize-sm-p;
+        }
+    }
+    
+
+}
+@media (min-width: 576px) and (max-width: 767.98px){/*sm*/
+    /*Nav*/
+    .div1{
+        order: 1;
+    }
+    .div2{
+        order: 3;
+    }
+    .div3{
+        order: 2;
+    }
+
+}
+@media (min-width: 768px) and (max-width: 991.98px){/*md*/
+    /*Footer*/
+    .estilo-footer{
+        p{
+            font-size: $fontSize-sm-p;
+        }
+    }
+}
+@media (min-width: 992px) and (max-width: 1199.98px){/*lg*/
+
+    /*Footer*/
+    .estilo-footer{
+        p{
+            font-size: $fontSize-sm-p;
+        }
+    }
+}
+@media (min-width: 1200px){/*xl*/
+
+}

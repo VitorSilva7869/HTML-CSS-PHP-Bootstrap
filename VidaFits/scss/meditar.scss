@@ -1,0 +1,620 @@
+//font
+@mixin fontMontserrat(){
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    @include fontMontserrat();
+}
+
+html,body{
+    height: 100%;
+    overflow-x: hidden; /* Esconde a barra de rolagens*/
+}
+
+
+//Variavel
+$cor1 : #055906;
+$cor2 : #6ba103;
+
+$fontSize-xs : 15px;
+$fontSize-sm : 19px;
+$fontSize-md : 18px;
+
+$fontSize-xs-h: 15px;
+$fontSize-sm-h: 17px;
+$fontSize-md-h: 20px;
+$fontSize-lg-h: 24px;
+
+$fontSize-sm-p: 14px;
+$fontSize-md-footer-p: 17px;
+$fontSize-lg-footer-p: 18px;
+
+//alinhamento item
+@mixin flexItem($item){
+    display: flex;
+    align-items: $item;
+}
+
+/*------------Navegação----------*/
+
+.nav-link{
+    margin-bottom: 0;
+    padding: 0;
+    @include flexItem(center);
+    li{
+        float: left;
+        list-style: none;
+    }
+
+   a{
+        display: block;
+        padding: 0 0.5em;
+        line-height: 2em;
+        font-size: 20px;
+        text-decoration: none;
+        color: $cor2;
+        @include fontMontserrat();
+        @extend %fancy-link;
+   }
+}
+
+    
+
+%fancy-link { //Efeito 
+    position: relative;
+    text-decoration: none;
+    transition: all 0.15s ease-out;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0px;
+      left: 0;
+      background: $cor1;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+    &:hover {
+        color: $cor1;
+      transition: all 0.15s ease-out;
+      &:before {
+          visibility: visible;
+          transform: scaleX(1);
+      }
+    }
+  }
+
+.icone{
+    width: 120px;
+    @include flexItem(center);
+
+    a{
+        color: $cor2;
+        margin: 0 15px;
+        padding: 5px;
+        border-radius: 100%;
+        transition: 0.5s;
+    }
+    a:hover{
+        color: white;
+        background: $cor1;
+        border-radius: 100%;
+        padding: 11px;
+
+    }
+}
+.hamburguer{
+    i{
+        color: $cor1;
+    }
+    transition: transform 1s  ease;
+}
+.hamburguer.rotated{
+    transform: rotate(360deg);
+}
+
+#myButton {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+  }
+  
+  #myButton.rotated {
+    transform: rotate(360deg);
+  }
+  
+
+.div1{
+    order: 1;
+}
+.div2{
+    order: 2;
+}
+.div3{
+    order: 3;
+}
+
+#sumir{
+    @include flexItem(center);
+    
+
+}
+
+.navbar{
+    border-bottom: 1px solid #e4f6c3;
+}
+
+
+
+/*------------Meditação-----------*/
+
+//btn
+.btn-style{
+    background: none;
+    border: 2px solid $cor2;
+    border-radius: 10px;
+    padding: 7px 15px;
+
+    color: $cor1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover{
+        background: $cor2;
+        color: white;
+    }
+}
+
+
+.box{
+    margin-top: 60px;
+}
+
+.style-h1{
+    color: $cor1;
+    @include fontMontserrat();
+    font-style: italic;
+
+}
+
+//Cirulo de progeço
+
+.box-circle{
+    position: relative;
+
+    svg{
+    width: 190px;
+    height: 190px;
+    position: relative;
+    }
+}
+
+circle{
+    fill: none;
+    stroke: black;
+    stroke-width: 7;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 570;
+    stroke-dashoffset: 570;
+}
+
+circle:nth-child(1){
+    stroke-dashoffset:0 ;
+    stroke: $cor2;
+}
+circle:nth-child(2){
+    stroke: $cor1;
+    transition: stroke-dashoffset 0.8s;
+}
+
+.number{
+    position: absolute;
+    right: 61px;
+    bottom: 68px;
+    
+    color: $cor2;
+    @include fontMontserrat();
+
+    
+}
+
+
+/*---------------Calendario----------*/
+
+.coluna-1{
+    background: $cor2;
+    border-radius: 20px 0px 0px 20px;
+    h1{
+        font-size: 150px;
+        color: white;
+        font-weight: 700;
+        line-height: 0.7;
+        
+    }
+    h2{
+        color: white;
+        font-weight: 500;
+        line-height: 0.7;
+    }
+    h5{
+        color: rgb(238, 235, 235);
+        @include fontMontserrat();
+    }
+    p{
+        color: rgb(238, 235, 235);
+        line-height: 0.7;
+        @include fontMontserrat();
+        font-size: 16px;
+        margin-bottom: 80px;
+    }
+    button{
+        background: none;
+        border-radius: 30px;
+        border: 1px solid white;
+        color: white;
+        padding: 0px 8px;
+        &:hover{
+            color: black;
+            border: 1px solid black;
+        }
+    }
+}
+.borda{
+    border-top: 1px solid #e5e5e5;
+}
+
+.coluna-2{
+    border-radius: 0 20px 20px 0;
+    border: 1px solid #e5e5e5;
+    h3{
+        color: $cor2;
+        font-weight: 700;
+
+    }
+    span{
+        color: #817e7e;
+        margin: 0px 8px;
+
+    }
+    strong{
+        color: $cor2;
+    }
+
+}
+.borda-b{
+    border-bottom: 1px solid #e5e5e5;
+
+}
+
+.tableStyle{
+    th{
+        padding: 0px 22px;
+        font-size: 26px;
+        color: #817e7e;
+    }
+    td{
+        font-size: 17px;
+        padding: 13px 0;
+    }
+}
+
+.off-text{
+    color: #afaeae;
+}
+
+.active-dayy{
+    background: $cor2;
+    border-radius: 30px;
+    color: white;
+}
+
+/*---------------Footer----------*/
+.estilo-footer{
+    margin-top: 150px;
+    background: $cor2;
+    p{
+        color: white;
+        @include fontMontserrat();
+
+    }
+}
+
+.icone-style{
+    font-size: 20px;
+}
+
+/*--------------Media---------------------*/
+
+
+
+
+@media (max-width: 460px) {
+    /*Nav*/
+    .sumir a{
+        display: none;
+    }
+    .icone{
+        i{
+            font-size: $fontSize-sm-p;
+        }
+        a:hover{
+            color: white;
+            background: $cor1;
+            border-radius: 100%;
+            padding: 5px 8px;
+        }
+    }
+    .nav-link a{
+        font-size: $fontSize-xs;
+    }
+    /*Estilo footer*/
+    .estilo-footer{
+        p{
+            font-size: $fontSize-sm;
+        }
+    }
+
+    /*----meditação-----*/
+
+}
+
+@media (max-width: 575.98px){/*xs*/
+    /*Nav*/
+    .div1{
+        order: 1;
+    }
+    .div2{
+        order: 3;
+    }
+    .div3{
+        order: 2;
+    }
+
+    /*------Calendario------*/
+    .mt-xs-10{
+        margin-top: 200px;
+    }
+    .coluna-1{
+        border-radius: 20px 20px 0px 0px;
+        h1{
+            font-size: 120px;
+            font-weight: 700;
+            line-height: 0.7;
+            
+        }
+        h2{
+            font-weight: 500;
+            line-height: 0.7;
+            font-size: 20px;
+        }
+        h5{
+            display: none;
+        }
+        p{
+            display: none;
+        }
+        button{
+            display: none;
+        }
+        .borda{
+            display: none;
+        }
+        h3{
+            display: block;
+        }
+    }
+    .coluna-2{
+        border-radius: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        h3{
+            display: none;
+    
+        }
+        span{
+            margin: 0px 1px;
+            font-size: 16px;
+        }
+    }   
+    
+    .tableStyle{
+        th{
+            padding: 0px 13px;
+            font-size: 13px;
+        }
+        td{
+            font-size: 10px;
+            padding: 10px 0;
+        }
+    }
+    .coluna-3{
+        background: $cor2;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 0px 0 20px 20px;
+        h5{
+            color: rgb(238, 235, 235);
+        }
+        p{
+            color: rgb(238, 235, 235);
+            line-height: 0.7;
+            @include fontMontserrat();
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button{
+            background: none;
+            border-radius: 30px;
+            border: 1px solid white;
+            color: white;
+            padding: 0px 8px;
+            &:hover{
+                color: black;
+                border: 1px solid black;
+            }
+        }
+    }
+
+    /*footer*/
+    .estilo-footer{
+        p{
+            font-size: $fontSize-sm-p;
+        }
+    }
+
+    
+}
+@media (min-width: 576px) and (max-width: 767.98px){/*sm*/
+    /*Nav*/
+    .div1{
+        order: 1;
+    }
+    .div2{
+        order: 3;
+    }
+    .div3{
+        order: 2;
+    }
+
+    /*------Calendario------*/
+    .coluna-1{
+        h1{
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 0.7;
+            
+        }
+        h2{
+            font-weight: 500;
+            line-height: 0.7;
+            font-size: 16px;
+        }
+        h5{
+            color: rgb(238, 235, 235);
+            @include fontMontserrat();
+            font-size: 16px;
+        }
+        p{
+            line-height: 0.7;
+            font-size: 12px;
+            margin-bottom: 40px;
+        }
+        button{
+            border-radius: 30px;
+            padding: 0px 8px;
+        }
+        .borda{
+            margin-bottom: 0px ;
+        }
+    }
+    .coluna-2{
+        h3{
+            font-size: 22px;
+            font-weight: 700;
+    
+        }
+        span{
+            margin: 0px 0.5px;
+            font-size: 16px;
+        }
+    }   
+    
+    .tableStyle{
+        th{
+            padding: 0px 13px;
+            font-size: 13px;
+        }
+        td{
+            font-size: 10px;
+            padding: 10px 0;
+        }
+    }
+
+
+
+}
+@media (min-width: 768px) and (max-width: 991.98px){/*md*/
+    .btn-home{
+        a{
+            //posição
+            bottom: 30px; /* Posição vertical */
+            right: 1px;
+        }
+    }
+    /*------Calendario------*/
+    .coluna-1{
+        h1{
+            font-size: 130px;
+            font-weight: 700;
+            line-height: 0.7;
+            
+        }
+        h2{
+            font-weight: 500;
+            line-height: 0.7;
+            font-size: 20px;
+        }
+        h5{
+            color: rgb(238, 235, 235);
+            @include fontMontserrat();
+        }
+        p{
+            line-height: 0.7;
+            font-size: 16px;
+            margin-bottom: 80px;
+        }
+        button{
+            border-radius: 30px;
+            padding: 0px 8px;
+        }
+        .borda{
+            margin-bottom: 0px ;
+        }
+    }
+    .coluna-2{
+        h3{
+            font-weight: 700;
+    
+        }
+        span{
+            margin: 0px 3px;
+    
+        }
+    }   
+    
+    .tableStyle{
+        th{
+            padding: 0px 18px;
+            font-size: 20px;
+        }
+        td{
+            font-size: 13px;
+            padding: 13px 0;
+        }
+    }
+
+    /*-------Footer---------*/
+    .estilo-footer{
+        p{
+            font-size: $fontSize-sm-p;
+        }
+    }
+
+}
+@media (min-width: 992px) and (max-width: 1199.98px){/*lg*/
+    .estilo-footer{
+        p{
+            font-size: $fontSize-sm-p;
+        }
+    }
+}
+@media (min-width: 1200px){/*xl*/
+
+}
